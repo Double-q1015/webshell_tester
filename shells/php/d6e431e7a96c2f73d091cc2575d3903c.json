@@ -1,0 +1,31 @@
+{
+  "filename": "php_assert.php",
+  "type": "php",
+  "size": 59,
+  "md5": "d6e431e7a96c2f73d091cc2575d3903c",
+  "connection": {
+    "method": "POST",
+    "password": "ant",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "php_assert.php",
+    "source_path": "uncheck-shells/php_assert.php"
+  }
+}

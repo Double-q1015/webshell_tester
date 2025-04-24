@@ -1,0 +1,31 @@
+{
+  "filename": "Private-i3lue.php",
+  "type": "php",
+  "size": 62716,
+  "md5": "13f5c7a035ecce5f9f380967cf9d4e92",
+  "connection": {
+    "method": "POST",
+    "password": "edit",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "Private-i3lue.php",
+    "source_path": "uncheck-shells/Private-i3lue.php"
+  }
+}

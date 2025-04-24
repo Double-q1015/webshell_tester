@@ -1,0 +1,31 @@
+{
+  "filename": "bypass-dog-2020-01-30.php",
+  "type": "php",
+  "size": 180,
+  "md5": "8ec2f7c69693c8ec26b53fb061d57695",
+  "connection": {
+    "method": "GET",
+    "password": "nb",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": true,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "bypass-dog-2020-01-30.php",
+    "source_path": "uncheck-shells/bypass-dog-2020-01-30.php"
+  }
+}

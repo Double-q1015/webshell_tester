@@ -1,0 +1,31 @@
+{
+  "filename": "SnIpEr_SA Shell.php",
+  "type": "php",
+  "size": 103794,
+  "md5": "911195a9b7c010f61b66439d9048f400",
+  "connection": {
+    "method": "POST",
+    "password": "SnIpEr_SA",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "SnIpEr_SA Shell.php",
+    "source_path": "uncheck-shells/SnIpEr_SA Shell.php"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "filename": "c66.php",
+  "type": "php",
+  "size": 131592,
+  "md5": "0f5b9238d281bc6ac13406bb24ac2a5b",
+  "connection": {
+    "method": "POST",
+    "password": "c99sh_surl",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "c66.php",
+    "source_path": "uncheck-shells/c66.php"
+  }
+}

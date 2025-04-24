@@ -1,0 +1,31 @@
+{
+  "filename": "adminer-4.5.0.php",
+  "type": "php",
+  "size": 451104,
+  "md5": "9fb301fbaf98b59582c7062dc9a291af",
+  "connection": {
+    "method": "POST",
+    "password": "save",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": false,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "adminer-4.5.0.php",
+    "source_path": "uncheck-shells/adminer-4.5.0.php"
+  }
+}

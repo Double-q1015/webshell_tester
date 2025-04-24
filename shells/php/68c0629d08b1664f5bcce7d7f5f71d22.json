@@ -1,0 +1,31 @@
+{
+  "filename": "c99-shadows-mod.php",
+  "type": "php",
+  "size": 160181,
+  "md5": "68c0629d08b1664f5bcce7d7f5f71d22",
+  "connection": {
+    "method": "POST",
+    "password": "c99sh_surl",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "c99-shadows-mod.php",
+    "source_path": "uncheck-shells/c99-shadows-mod.php"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "filename": "zone_hackbar_other.php",
+  "type": "php",
+  "size": 81,
+  "md5": "13a0c38ec6d8b21c54d2337cf2e02f40",
+  "connection": {
+    "method": "POST",
+    "password": "n985de9",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "zone_hackbar_other.php",
+    "source_path": "uncheck-shells/zone_hackbar_other.php"
+  }
+}

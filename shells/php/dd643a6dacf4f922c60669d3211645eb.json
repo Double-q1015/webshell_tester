@@ -1,0 +1,31 @@
+{
+  "filename": "xw.php",
+  "type": "php",
+  "size": 27976,
+  "md5": "dd643a6dacf4f922c60669d3211645eb",
+  "connection": {
+    "method": "POST",
+    "password": "pmy_password",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "xw.php",
+    "source_path": "uncheck-shells/xw.php"
+  }
+}

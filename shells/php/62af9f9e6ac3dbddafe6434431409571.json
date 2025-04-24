@@ -1,0 +1,31 @@
+{
+  "filename": "yaps.php",
+  "type": "php",
+  "size": 35026,
+  "md5": "62af9f9e6ac3dbddafe6434431409571",
+  "connection": {
+    "method": "POST",
+    "password": "x",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": false,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "yaps.php",
+    "source_path": "uncheck-shells/yaps.php"
+  }
+}

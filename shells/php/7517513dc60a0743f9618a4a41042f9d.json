@@ -1,0 +1,31 @@
+{
+  "filename": "array_intersect_uassoc-filename-last-char-must-be-s.php",
+  "type": "php",
+  "size": 198,
+  "md5": "7517513dc60a0743f9618a4a41042f9d",
+  "connection": {
+    "method": "POST",
+    "password": "LandGrey",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "array_intersect_uassoc-filename-last-char-must-be-s.php",
+    "source_path": "uncheck-shells/array_intersect_uassoc-filename-last-char-must-be-s.php"
+  }
+}

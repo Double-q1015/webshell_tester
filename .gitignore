@@ -38,8 +38,6 @@ logs/
 
 # Test files
 exports/
-shells/
-uncheck-shells/
 simple-test/
 
 # Docker

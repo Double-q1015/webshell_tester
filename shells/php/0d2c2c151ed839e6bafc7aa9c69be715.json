@@ -1,0 +1,31 @@
+{
+  "filename": "newsh.php",
+  "type": "php",
+  "size": 56072,
+  "md5": "0d2c2c151ed839e6bafc7aa9c69be715",
+  "connection": {
+    "method": "POST",
+    "password": "dir",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "newsh.php",
+    "source_path": "uncheck-shells/newsh.php"
+  }
+}

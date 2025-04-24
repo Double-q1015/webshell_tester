@@ -1,0 +1,31 @@
+{
+  "filename": "sql.php",
+  "type": "php",
+  "size": 82531,
+  "md5": "2cf20a207695bbc2311a998d1d795c35",
+  "connection": {
+    "method": "GET",
+    "password": "send",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": true,
+    "eval_usage": false,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "sql.php",
+    "source_path": "uncheck-shells/sql.php"
+  }
+}

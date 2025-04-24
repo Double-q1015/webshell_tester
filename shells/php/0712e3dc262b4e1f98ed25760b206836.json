@@ -1,0 +1,31 @@
+{
+  "filename": "PHPSPY.php",
+  "type": "php",
+  "size": 27213,
+  "md5": "0712e3dc262b4e1f98ed25760b206836",
+  "connection": {
+    "method": "POST",
+    "password": "action",
+    "param_name": "command",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "PHPSPY.php",
+    "source_path": "uncheck-shells/PHPSPY.php"
+  }
+}

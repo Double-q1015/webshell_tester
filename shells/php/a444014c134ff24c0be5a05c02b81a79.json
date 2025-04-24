@@ -1,0 +1,31 @@
+{
+  "filename": "code.php",
+  "type": "php",
+  "size": 35328,
+  "md5": "a444014c134ff24c0be5a05c02b81a79",
+  "connection": {
+    "method": "POST",
+    "password": "dir",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": true,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "code.php",
+    "source_path": "uncheck-shells/code.php"
+  }
+}

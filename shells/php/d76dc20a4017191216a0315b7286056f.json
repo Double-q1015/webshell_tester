@@ -1,0 +1,31 @@
+{
+  "filename": "PHPJackal v1.5.php",
+  "type": "php",
+  "size": 86921,
+  "md5": "d76dc20a4017191216a0315b7286056f",
+  "connection": {
+    "method": "POST",
+    "password": "fpassw",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "PHPJackal v1.5.php",
+    "source_path": "uncheck-shells/PHPJackal v1.5.php"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "filename": "admine21_decode.php",
+  "type": "php",
+  "size": 52747,
+  "md5": "c2dba77eaa9553d26656ea55b4a0a7cf",
+  "connection": {
+    "method": "POST",
+    "password": "getpwd",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "admine21_decode.php",
+    "source_path": "uncheck-shells/admine21_decode.php"
+  }
+}

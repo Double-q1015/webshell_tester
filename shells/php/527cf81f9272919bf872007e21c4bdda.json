@@ -1,0 +1,31 @@
+{
+  "filename": "KAdot Universal Shell v0.1.6.php",
+  "type": "php",
+  "size": 4656,
+  "md5": "527cf81f9272919bf872007e21c4bdda",
+  "connection": {
+    "method": "POST",
+    "password": "ac",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": false,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "KAdot Universal Shell v0.1.6.php",
+    "source_path": "uncheck-shells/KAdot Universal Shell v0.1.6.php"
+  }
+}

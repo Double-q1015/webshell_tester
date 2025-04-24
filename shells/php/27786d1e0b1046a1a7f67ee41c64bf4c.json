@@ -1,0 +1,31 @@
+{
+  "filename": "c100 v. 777shell v. Undetectable #18a Modded by 777 - Don.php",
+  "type": "php",
+  "size": 161917,
+  "md5": "27786d1e0b1046a1a7f67ee41c64bf4c",
+  "connection": {
+    "method": "GET",
+    "password": "file",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "c100 v. 777shell v. Undetectable #18a Modded by 777 - Don.php",
+    "source_path": "uncheck-shells/c100 v. 777shell v. Undetectable #18a Modded by 777 - Don.php"
+  }
+}

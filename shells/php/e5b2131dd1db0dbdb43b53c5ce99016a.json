@@ -1,0 +1,31 @@
+{
+  "filename": "r57_Mohajer22.php",
+  "type": "php",
+  "size": 114318,
+  "md5": "e5b2131dd1db0dbdb43b53c5ce99016a",
+  "connection": {
+    "method": "POST",
+    "password": "Mohajer22",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "r57_Mohajer22.php",
+    "source_path": "uncheck-shells/r57_Mohajer22.php"
+  }
+}

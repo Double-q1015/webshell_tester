@@ -1,0 +1,31 @@
+{
+  "filename": "decrypt.php",
+  "type": "php",
+  "size": 27637,
+  "md5": "5c140b380a99fc33fbf021cffda5c137",
+  "connection": {
+    "method": "POST",
+    "password": "phpinfo",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "decrypt.php",
+    "source_path": "uncheck-shells/decrypt.php"
+  }
+}

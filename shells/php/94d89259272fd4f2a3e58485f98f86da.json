@@ -1,0 +1,31 @@
+{
+  "filename": "强悍.php",
+  "type": "php",
+  "size": 2419,
+  "md5": "94d89259272fd4f2a3e58485f98f86da",
+  "connection": {
+    "method": "POST",
+    "password": "pass",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "强悍.php",
+    "source_path": "uncheck-shells/强悍.php"
+  }
+}

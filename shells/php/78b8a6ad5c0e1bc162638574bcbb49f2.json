@@ -1,0 +1,31 @@
+{
+  "filename": "r00ts php大马.php",
+  "type": "php",
+  "size": 151476,
+  "md5": "78b8a6ad5c0e1bc162638574bcbb49f2",
+  "connection": {
+    "method": "POST",
+    "password": "pfn",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "r00ts php大马.php",
+    "source_path": "uncheck-shells/r00ts php大马.php"
+  }
+}

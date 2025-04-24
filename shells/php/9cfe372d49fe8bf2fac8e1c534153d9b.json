@@ -1,0 +1,31 @@
+{
+  "filename": "Dx.php",
+  "type": "php",
+  "size": 111606,
+  "md5": "9cfe372d49fe8bf2fac8e1c534153d9b",
+  "connection": {
+    "method": "POST",
+    "password": "dx_gzip",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "Dx.php",
+    "source_path": "uncheck-shells/Dx.php"
+  }
+}

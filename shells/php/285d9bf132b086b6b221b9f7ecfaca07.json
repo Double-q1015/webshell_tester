@@ -1,0 +1,31 @@
+{
+  "filename": "array_intersect_uassoc-filename-last-char-must-be-r.php",
+  "type": "php",
+  "size": 217,
+  "md5": "285d9bf132b086b6b221b9f7ecfaca07",
+  "connection": {
+    "method": "POST",
+    "password": "LandGrey",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "array_intersect_uassoc-filename-last-char-must-be-r.php",
+    "source_path": "uncheck-shells/array_intersect_uassoc-filename-last-char-must-be-r.php"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "filename": "Dive Shell 1.0 - Emperor Hacking Team.php",
+  "type": "php",
+  "size": 5512,
+  "md5": "1b5102bdc41a7bc439eea8f0010310a5",
+  "connection": {
+    "method": "POST",
+    "password": "reset",
+    "param_name": "command",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "Dive Shell 1.0 - Emperor Hacking Team.php",
+    "source_path": "uncheck-shells/Dive Shell 1.0 - Emperor Hacking Team.php"
+  }
+}

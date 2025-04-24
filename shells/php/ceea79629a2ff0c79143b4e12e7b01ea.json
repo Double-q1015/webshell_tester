@@ -1,0 +1,31 @@
+{
+  "filename": "v4xGus6X.php",
+  "type": "php",
+  "size": 226465,
+  "md5": "ceea79629a2ff0c79143b4e12e7b01ea",
+  "connection": {
+    "method": "POST",
+    "password": "message",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "v4xGus6X.php",
+    "source_path": "uncheck-shells/v4xGus6X.php"
+  }
+}

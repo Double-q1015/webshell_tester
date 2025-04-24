@@ -1,0 +1,31 @@
+{
+  "filename": "2020.08.20.20.php",
+  "type": "php",
+  "size": 90,
+  "md5": "4ccbcd5f535db11e49f1d427c6653022",
+  "connection": {
+    "method": "POST",
+    "password": "e",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "2020.08.20.20.php",
+    "source_path": "uncheck-shells/2020.08.20.20.php"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "filename": "phpwebshell pass by waf for share.md",
+  "type": "php",
+  "size": 1281,
+  "md5": "9afa248931e0ea8cb53adb8de3a84c1d",
+  "connection": {
+    "method": "POST",
+    "password": "a",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "phpwebshell pass by waf for share.md",
+    "source_path": "uncheck-shells/phpwebshell pass by waf for share.md"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "filename": "dev_core.php",
+  "type": "php",
+  "size": 7037,
+  "md5": "55ad9309b006884f660c41e53150fc2e",
+  "connection": {
+    "method": "POST",
+    "password": "pwd",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "dev_core.php",
+    "source_path": "uncheck-shells/dev_core.php"
+  }
+}

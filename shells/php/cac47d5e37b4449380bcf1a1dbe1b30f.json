@@ -1,0 +1,31 @@
+{
+  "filename": "php_custom_script_for_mysql_fix.php",
+  "type": "php",
+  "size": 12391,
+  "md5": "cac47d5e37b4449380bcf1a1dbe1b30f",
+  "connection": {
+    "method": "POST",
+    "password": "charset",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": false,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "php_custom_script_for_mysql_fix.php",
+    "source_path": "uncheck-shells/php_custom_script_for_mysql_fix.php"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "filename": "itsecteam_shell.php",
+  "type": "php",
+  "size": 65120,
+  "md5": "bd6d3b2763c705a01cc2b3f105a25fa4",
+  "connection": {
+    "method": "POST",
+    "password": "chmode",
+    "param_name": "command",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "itsecteam_shell.php",
+    "source_path": "uncheck-shells/itsecteam_shell.php"
+  }
+}

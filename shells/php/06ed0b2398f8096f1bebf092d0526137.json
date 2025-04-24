@@ -1,0 +1,31 @@
+{
+  "filename": "h4ntu shell [powered by tsoi].php",
+  "type": "php",
+  "size": 2475,
+  "md5": "06ed0b2398f8096f1bebf092d0526137",
+  "connection": {
+    "method": "POST",
+    "password": "cmd",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": true,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "h4ntu shell [powered by tsoi].php",
+    "source_path": "uncheck-shells/h4ntu shell [powered by tsoi].php"
+  }
+}

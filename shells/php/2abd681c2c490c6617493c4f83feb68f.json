@@ -1,0 +1,31 @@
+{
+  "filename": "wso-ng.php",
+  "type": "php",
+  "size": 85741,
+  "md5": "2abd681c2c490c6617493c4f83feb68f",
+  "connection": {
+    "method": "POST",
+    "password": "a",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "wso-ng.php",
+    "source_path": "uncheck-shells/wso-ng.php"
+  }
+}

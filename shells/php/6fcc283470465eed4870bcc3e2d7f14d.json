@@ -1,0 +1,31 @@
+{
+  "filename": "Backdoor.PHP.Agent.php",
+  "type": "php",
+  "size": 103564,
+  "md5": "6fcc283470465eed4870bcc3e2d7f14d",
+  "connection": {
+    "method": "POST",
+    "password": "pass",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "Backdoor.PHP.Agent.php",
+    "source_path": "uncheck-shells/Backdoor.PHP.Agent.php"
+  }
+}

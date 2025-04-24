@@ -1,0 +1,31 @@
+{
+  "filename": "2011.php",
+  "type": "php",
+  "size": 74895,
+  "md5": "fc0a162ef6f1b8238a5531cd9bbc9938",
+  "connection": {
+    "method": "POST",
+    "password": "findstr",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "2011.php",
+    "source_path": "uncheck-shells/2011.php"
+  }
+}

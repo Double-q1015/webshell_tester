@@ -1,0 +1,31 @@
+{
+  "filename": "m7lrv01.php",
+  "type": "php",
+  "size": 67,
+  "md5": "3ccf9cb0f5be502de520558640662724",
+  "connection": {
+    "method": "POST",
+    "password": "m7lrv",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": true,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "m7lrv01.php",
+    "source_path": "uncheck-shells/m7lrv01.php"
+  }
+}

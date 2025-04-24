@@ -1,0 +1,31 @@
+{
+  "filename": "qyt0dHv1.php",
+  "type": "php",
+  "size": 227684,
+  "md5": "1f41ffa4ac622d0952bc3104b393365b",
+  "connection": {
+    "method": "POST",
+    "password": "jancox",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "qyt0dHv1.php",
+    "source_path": "uncheck-shells/qyt0dHv1.php"
+  }
+}

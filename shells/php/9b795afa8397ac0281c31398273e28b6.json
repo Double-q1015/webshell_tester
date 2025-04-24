@@ -1,0 +1,31 @@
+{
+  "filename": "aioshell.php",
+  "type": "php",
+  "size": 33190,
+  "md5": "9b795afa8397ac0281c31398273e28b6",
+  "connection": {
+    "method": "POST",
+    "password": "newcontent",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "aioshell.php",
+    "source_path": "uncheck-shells/aioshell.php"
+  }
+}

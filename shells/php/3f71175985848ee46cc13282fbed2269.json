@@ -1,0 +1,31 @@
+{
+  "filename": "antichat.php",
+  "type": "php",
+  "size": 31792,
+  "md5": "3f71175985848ee46cc13282fbed2269",
+  "connection": {
+    "method": "POST",
+    "password": "action",
+    "param_name": "command",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "antichat.php",
+    "source_path": "uncheck-shells/antichat.php"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "filename": "pass-waf-2014-10-19.php",
+  "type": "php",
+  "size": 117,
+  "md5": "1083f2634d1e672d6a427a081e577cad",
+  "connection": {
+    "method": "POST",
+    "password": "tt1234",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "pass-waf-2014-10-19.php",
+    "source_path": "uncheck-shells/pass-waf-2014-10-19.php"
+  }
+}

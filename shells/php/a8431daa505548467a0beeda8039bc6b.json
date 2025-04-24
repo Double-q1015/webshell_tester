@@ -1,0 +1,31 @@
+{
+  "filename": "forward_static_call_array-referer-ass.php",
+  "type": "php",
+  "size": 193,
+  "md5": "a8431daa505548467a0beeda8039bc6b",
+  "connection": {
+    "method": "POST",
+    "password": "LandGrey",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "forward_static_call_array-referer-ass.php",
+    "source_path": "uncheck-shells/forward_static_call_array-referer-ass.php"
+  }
+}

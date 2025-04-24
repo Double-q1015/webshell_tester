@@ -1,0 +1,31 @@
+{
+  "filename": "PHP简单小马源码.php",
+  "type": "php",
+  "size": 439,
+  "md5": "a524e7ae8d71e37d2fd3e5fbdab405ea",
+  "connection": {
+    "method": "POST",
+    "password": "f",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": false,
+    "database_ops": true,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "PHP简单小马源码.php",
+    "source_path": "uncheck-shells/PHP简单小马源码.php"
+  }
+}

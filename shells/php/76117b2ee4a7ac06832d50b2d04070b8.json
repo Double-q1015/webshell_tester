@@ -1,0 +1,31 @@
+{
+  "filename": "phpshell3.php",
+  "type": "php",
+  "size": 13275,
+  "md5": "76117b2ee4a7ac06832d50b2d04070b8",
+  "connection": {
+    "method": "POST",
+    "password": "username",
+    "param_name": "command",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "phpshell3.php",
+    "source_path": "uncheck-shells/phpshell3.php"
+  }
+}

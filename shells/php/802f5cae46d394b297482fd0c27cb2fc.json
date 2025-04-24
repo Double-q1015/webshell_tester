@@ -1,0 +1,31 @@
+{
+  "filename": "hkrkoz.php",
+  "type": "php",
+  "size": 44915,
+  "md5": "802f5cae46d394b297482fd0c27cb2fc",
+  "connection": {
+    "method": "POST",
+    "password": "phpinfo",
+    "param_name": "command",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "hkrkoz.php",
+    "source_path": "uncheck-shells/hkrkoz.php"
+  }
+}

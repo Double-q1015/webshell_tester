@@ -1,0 +1,31 @@
+{
+  "filename": "bypass403.php",
+  "type": "php",
+  "size": 12974,
+  "md5": "b4ce5a9d930019b41fb039cc48c2fadc",
+  "connection": {
+    "method": "POST",
+    "password": "s",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "bypass403.php",
+    "source_path": "uncheck-shells/bypass403.php"
+  }
+}

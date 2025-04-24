@@ -1,0 +1,31 @@
+{
+  "filename": "NetworkFileManagerPHP.php",
+  "type": "php",
+  "size": 122250,
+  "md5": "acdbba993a5a4186fd864c5e4ea0ba4f",
+  "connection": {
+    "method": "POST",
+    "password": "domen",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "NetworkFileManagerPHP.php",
+    "source_path": "uncheck-shells/NetworkFileManagerPHP.php"
+  }
+}

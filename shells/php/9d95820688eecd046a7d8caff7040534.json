@@ -1,0 +1,31 @@
+{
+  "filename": "icesword.php",
+  "type": "php",
+  "size": 157083,
+  "md5": "9d95820688eecd046a7d8caff7040534",
+  "connection": {
+    "method": "POST",
+    "password": "updir",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "icesword.php",
+    "source_path": "uncheck-shells/icesword.php"
+  }
+}

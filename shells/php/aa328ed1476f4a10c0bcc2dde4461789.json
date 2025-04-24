@@ -1,0 +1,31 @@
+{
+  "filename": "metaslsoft.php",
+  "type": "php",
+  "size": 79452,
+  "md5": "aa328ed1476f4a10c0bcc2dde4461789",
+  "connection": {
+    "method": "POST",
+    "password": "login",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "metaslsoft.php",
+    "source_path": "uncheck-shells/metaslsoft.php"
+  }
+}

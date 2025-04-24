@@ -1,0 +1,31 @@
+{
+  "filename": "g00nv13.php",
+  "type": "php",
+  "size": 31801,
+  "md5": "35ad2533192fe8a1a76c3276140db820",
+  "connection": {
+    "method": "POST",
+    "password": "contents",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "g00nv13.php",
+    "source_path": "uncheck-shells/g00nv13.php"
+  }
+}

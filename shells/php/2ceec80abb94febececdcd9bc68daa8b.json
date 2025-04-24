@@ -1,0 +1,31 @@
+{
+  "filename": "免杀php大马.php",
+  "type": "php",
+  "size": 138630,
+  "md5": "2ceec80abb94febececdcd9bc68daa8b",
+  "connection": {
+    "method": "POST",
+    "password": "doing",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "免杀php大马.php",
+    "source_path": "uncheck-shells/免杀php大马.php"
+  }
+}

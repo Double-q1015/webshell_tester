@@ -1,0 +1,31 @@
+{
+  "filename": "eval.php",
+  "type": "php",
+  "size": 28,
+  "md5": "539fd33b41024da731944782f7b71a86",
+  "connection": {
+    "method": "POST",
+    "password": "code",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": true,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "eval.php",
+    "source_path": "simple-test/eval.php"
+  }
+}

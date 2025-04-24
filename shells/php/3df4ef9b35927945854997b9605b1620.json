@@ -1,0 +1,31 @@
+{
+  "filename": "angel大马.php",
+  "type": "php",
+  "size": 75224,
+  "md5": "3df4ef9b35927945854997b9605b1620",
+  "connection": {
+    "method": "POST",
+    "password": "Id",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "angel大马.php",
+    "source_path": "uncheck-shells/angel大马.php"
+  }
+}

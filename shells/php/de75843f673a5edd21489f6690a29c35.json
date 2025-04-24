@@ -1,0 +1,31 @@
+{
+  "filename": "asw.php",
+  "type": "php",
+  "size": 131933,
+  "md5": "de75843f673a5edd21489f6690a29c35",
+  "connection": {
+    "method": "POST",
+    "password": "text-encode",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "asw.php",
+    "source_path": "uncheck-shells/asw.php"
+  }
+}

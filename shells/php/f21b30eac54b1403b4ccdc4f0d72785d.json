@@ -1,0 +1,31 @@
+{
+  "filename": "w-ob_start02.php",
+  "type": "php",
+  "size": 123,
+  "md5": "f21b30eac54b1403b4ccdc4f0d72785d",
+  "connection": {
+    "method": "POST",
+    "password": "pass",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "w-ob_start02.php",
+    "source_path": "uncheck-shells/w-ob_start02.php"
+  }
+}

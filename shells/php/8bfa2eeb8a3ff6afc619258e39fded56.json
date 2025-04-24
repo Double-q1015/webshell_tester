@@ -1,0 +1,31 @@
+{
+  "filename": "ironshell.php",
+  "type": "php",
+  "size": 18370,
+  "md5": "8bfa2eeb8a3ff6afc619258e39fded56",
+  "connection": {
+    "method": "POST",
+    "password": "pass",
+    "param_name": "command",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "ironshell.php",
+    "source_path": "uncheck-shells/ironshell.php"
+  }
+}

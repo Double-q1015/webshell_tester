@@ -1,0 +1,31 @@
+{
+  "filename": "r57.php",
+  "type": "php",
+  "size": 98732,
+  "md5": "41af6fd253648885c7ad2ed524e0692d",
+  "connection": {
+    "method": "POST",
+    "password": "d_name",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "r57.php",
+    "source_path": "uncheck-shells/r57.php"
+  }
+}

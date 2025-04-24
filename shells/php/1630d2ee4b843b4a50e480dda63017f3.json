@@ -1,0 +1,31 @@
+{
+  "filename": "bat_2.7.php",
+  "type": "php",
+  "size": 129483,
+  "md5": "1630d2ee4b843b4a50e480dda63017f3",
+  "connection": {
+    "method": "POST",
+    "password": "text-encode",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "bat_2.7.php",
+    "source_path": "uncheck-shells/bat_2.7.php"
+  }
+}

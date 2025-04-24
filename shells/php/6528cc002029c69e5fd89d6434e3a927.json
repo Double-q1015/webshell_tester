@@ -1,0 +1,31 @@
+{
+  "filename": "bypass-safedog-2016-08-29.php",
+  "type": "php",
+  "size": 121,
+  "md5": "6528cc002029c69e5fd89d6434e3a927",
+  "connection": {
+    "method": "GET",
+    "password": "a",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "bypass-safedog-2016-08-29.php",
+    "source_path": "uncheck-shells/bypass-safedog-2016-08-29.php"
+  }
+}

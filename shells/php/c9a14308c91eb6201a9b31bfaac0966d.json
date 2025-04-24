@@ -1,0 +1,31 @@
+{
+  "filename": "w01.php",
+  "type": "php",
+  "size": 216,
+  "md5": "c9a14308c91eb6201a9b31bfaac0966d",
+  "connection": {
+    "method": "POST",
+    "password": "id",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": true,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "w01.php",
+    "source_path": "uncheck-shells/w01.php"
+  }
+}

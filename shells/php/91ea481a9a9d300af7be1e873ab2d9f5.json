@@ -1,0 +1,31 @@
+{
+  "filename": "最新过安全狗- 免杀PHP大马 -.php",
+  "type": "php",
+  "size": 138635,
+  "md5": "91ea481a9a9d300af7be1e873ab2d9f5",
+  "connection": {
+    "method": "POST",
+    "password": "doing",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "最新过安全狗- 免杀PHP大马 -.php",
+    "source_path": "uncheck-shells/最新过安全狗- 免杀PHP大马 -.php"
+  }
+}

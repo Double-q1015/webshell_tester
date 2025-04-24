@@ -1,0 +1,31 @@
+{
+  "filename": "mof提权带回显带清楚命令版本.php",
+  "type": "php",
+  "size": 2963,
+  "md5": "6e56cd837863b2bde08650908cedf4bc",
+  "connection": {
+    "method": "POST",
+    "password": "submit",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": true,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "mof提权带回显带清楚命令版本.php",
+    "source_path": "uncheck-shells/mof提权带回显带清楚命令版本.php"
+  }
+}

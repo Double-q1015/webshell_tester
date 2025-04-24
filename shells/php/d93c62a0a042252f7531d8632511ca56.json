@@ -1,0 +1,31 @@
+{
+  "filename": "Sst-Sheller.php",
+  "type": "php",
+  "size": 21397,
+  "md5": "d93c62a0a042252f7531d8632511ca56",
+  "connection": {
+    "method": "POST",
+    "password": "to",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "Sst-Sheller.php",
+    "source_path": "uncheck-shells/Sst-Sheller.php"
+  }
+}

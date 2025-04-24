@@ -1,0 +1,31 @@
+{
+  "filename": "c99_locus7s.php",
+  "type": "php",
+  "size": 229103,
+  "md5": "38fd7e45f9c11a37463c3ded1c76af4c",
+  "connection": {
+    "method": "POST",
+    "password": "proxyhostmsg",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "c99_locus7s.php",
+    "source_path": "uncheck-shells/c99_locus7s.php"
+  }
+}

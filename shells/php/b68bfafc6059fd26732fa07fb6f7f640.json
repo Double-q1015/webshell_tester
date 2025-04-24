@@ -1,0 +1,31 @@
+{
+  "filename": "phpspy_2005_full.php",
+  "type": "php",
+  "size": 38882,
+  "md5": "b68bfafc6059fd26732fa07fb6f7f640",
+  "connection": {
+    "method": "POST",
+    "password": "adminpass",
+    "param_name": "command",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "phpspy_2005_full.php",
+    "source_path": "uncheck-shells/phpspy_2005_full.php"
+  }
+}

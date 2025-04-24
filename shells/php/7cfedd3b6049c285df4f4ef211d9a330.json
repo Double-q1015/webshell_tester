@@ -1,0 +1,31 @@
+{
+  "filename": "Shell [ci] .Biz was here.php",
+  "type": "php",
+  "size": 161911,
+  "md5": "7cfedd3b6049c285df4f4ef211d9a330",
+  "connection": {
+    "method": "GET",
+    "password": "file",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "Shell [ci] .Biz was here.php",
+    "source_path": "uncheck-shells/Shell [ci] .Biz was here.php"
+  }
+}

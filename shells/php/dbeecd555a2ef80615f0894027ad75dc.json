@@ -1,0 +1,31 @@
+{
+  "filename": "wso2.5.1.php",
+  "type": "php",
+  "size": 66125,
+  "md5": "dbeecd555a2ef80615f0894027ad75dc",
+  "connection": {
+    "method": "POST",
+    "password": "pass",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "wso2.5.1.php",
+    "source_path": "uncheck-shells/wso2.5.1.php"
+  }
+}

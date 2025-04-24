@@ -1,0 +1,31 @@
+{
+  "filename": "upsi1on.php",
+  "type": "php",
+  "size": 25061,
+  "md5": "bb5a86067a5a5ba36f94fb3b330ad6a1",
+  "connection": {
+    "method": "POST",
+    "password": "post",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": true,
+    "database_ops": false,
+    "eval_usage": true,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "upsi1on.php",
+    "source_path": "uncheck-shells/upsi1on.php"
+  }
+}

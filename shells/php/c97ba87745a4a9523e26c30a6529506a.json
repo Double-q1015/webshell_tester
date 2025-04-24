@@ -1,0 +1,31 @@
+{
+  "filename": "qsd-php-backdoor.php",
+  "type": "php",
+  "size": 13585,
+  "md5": "c97ba87745a4a9523e26c30a6529506a",
+  "connection": {
+    "method": "POST",
+    "password": "newcontent",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": false,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "qsd-php-backdoor.php",
+    "source_path": "simple-test/qsd-php-backdoor.php"
+  }
+}

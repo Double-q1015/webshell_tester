@@ -1,0 +1,31 @@
+{
+  "filename": "test.php",
+  "type": "php",
+  "size": 1585,
+  "md5": "80a9d47267697864eb42054f3992deef",
+  "connection": {
+    "method": "POST",
+    "password": "action",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "test.php",
+    "source_path": "uncheck-shells/test.php"
+  }
+}

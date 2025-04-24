@@ -1,0 +1,31 @@
+{
+  "filename": "极其隐蔽的pHp小马穿插在正常页面中.php",
+  "type": "php",
+  "size": 502,
+  "md5": "cf01cb6e09ee594545693c5d327bdd50",
+  "connection": {
+    "method": "GET",
+    "password": "hackers",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-25",
+    "last_tested": "2025-04-25",
+    "working_status": true,
+    "original_filename": "极其隐蔽的pHp小马穿插在正常页面中.php",
+    "source_path": "uncheck-shells/极其隐蔽的pHp小马穿插在正常页面中.php"
+  }
+}
