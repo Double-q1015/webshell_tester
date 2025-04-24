@@ -111,7 +111,7 @@ testcase:
 ## Detection Techniques
 
 ### Overview
-This project supports various WebShell detection techniques:
+Some WebShell detection techniques:
 
 | Technique | Description | Example |
 |-----------|-------------|---------|
