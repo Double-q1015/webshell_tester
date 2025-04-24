@@ -1,0 +1,31 @@
+{
+  "filename": "wso.php",
+  "type": "php",
+  "size": 84148,
+  "md5": "ad8fb0e91d134bb9b0ccfdf6add403c1",
+  "connection": {
+    "method": "POST",
+    "password": "charset",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-24",
+    "last_tested": "2025-04-24",
+    "working_status": true,
+    "original_filename": "wso.php",
+    "source_path": "uncheck-shells/wso.php"
+  }
+}

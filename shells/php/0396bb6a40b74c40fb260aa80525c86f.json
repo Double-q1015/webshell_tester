@@ -1,0 +1,31 @@
+{
+    "filename": "php_niu_1.php",
+    "type": "php",
+    "size": 217,
+    "md5": "0396bb6a40b74c40fb260aa80525c86f",
+    "connection": {
+        "method": "POST",
+        "password": "_",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": true,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "php_niu_1.php",
+        "source_path": "uncheck-shells/php_niu_1.php"
+    }
+}

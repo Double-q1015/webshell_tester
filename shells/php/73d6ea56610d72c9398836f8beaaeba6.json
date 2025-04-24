@@ -1,0 +1,31 @@
+{
+    "filename": "memWebshell.php",
+    "type": "php",
+    "size": 385,
+    "md5": "73d6ea56610d72c9398836f8beaaeba6",
+    "connection": {
+        "method": "POST",
+        "password": "remote_file",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": true,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "memWebshell.php",
+        "source_path": "uncheck-shells/memWebshell.php"
+    }
+}

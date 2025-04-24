@@ -1,29 +1,29 @@
 FROM node:16-slim
 
-# 安装必要工具
+# install necessary tools
 RUN apt-get update && apt-get install -y \
     curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# 设置工作目录
+# set working directory
 WORKDIR /app
 
-# 复制package.json和package-lock.json
+# copy package.json and package-lock.json
 COPY package*.json ./
 
-# 安装依赖
+# install dependencies
 RUN npm install
 
-# 创建健康检查文件
+# create health check file
 RUN echo "const express = require('express');\nconst app = express();\n\napp.get('/', (req, res) => {\n    res.send('healthy');\n});\n\napp.listen(3000, () => {\n    console.log('Server running on port 3000');\n});" > index.js
 
-# 健康检查
+# health check
 HEALTHCHECK --interval=5s --timeout=3s --retries=3 \
     CMD curl -f http://localhost:3000/ || exit 1
 
-# 暴露端口
+# expose port
 EXPOSE 3000
 
-# 启动Express应用
+# start express application
 CMD ["node", "index.js"] 

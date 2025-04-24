@@ -1,0 +1,31 @@
+{
+    "filename": "upload.py",
+    "type": "php",
+    "size": 964,
+    "md5": "9a0f98582165d2e1ca5a5f88fc8c912b",
+    "connection": {
+        "method": "POST",
+        "password": "%s",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": true,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-24",
+        "last_tested": "2025-04-24",
+        "working_status": true,
+        "original_filename": "upload.py",
+        "source_path": "uncheck-shells/upload.py"
+    }
+}

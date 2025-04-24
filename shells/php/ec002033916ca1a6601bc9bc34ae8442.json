@@ -1,0 +1,31 @@
+{
+    "filename": "encrypt.php",
+    "type": "php",
+    "size": 5777,
+    "md5": "ec002033916ca1a6601bc9bc34ae8442",
+    "connection": {
+        "method": "POST",
+        "password": "Skc1aGRpQTlJR2Q2YVc1bWJHRjBaU2hpWVhObE5qUmZaR1ZqYjJSbEtDUlRTVk5VUlUxSlZGOURUMDFmUlU1REtTazdEUW9KQ1Fra2MzUnlJRDBnV3lmMUp5d242eWNzSitNbkxDZjdKeXduNFNjc0ovRW5MQ2ZtSnl3bjdTY3NKLzBuTENmcUp5d250U2RkT3cwS0NRa0pKSEp3YkdNZ1BWc25ZU2NzSjJrbkxDZDFKeXduWlNjc0oyOG5MQ2RrSnl3bmN5Y3NKMmduTENkMkp5d25kQ2NzSnlBblhUc05DZ2tKSUNBZ0lDUnVZWFlnUFNCemRISmZjbVZ3YkdGalpTZ2tjM1J5TENSeWNHeGpMQ1J1WVhZcE93MEtDUWtKWlhaaGJDZ2tibUYyS1RzPQ==",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": true,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "encrypt.php",
+        "source_path": "uncheck-shells/encrypt.php"
+    }
+}

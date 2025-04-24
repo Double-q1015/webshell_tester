@@ -22,8 +22,8 @@
     "yara_rules": []
   },
   "metadata": {
-    "discovered_date": "2025-04-25",
-    "last_tested": "2025-04-25",
+    "discovered_date": "2025-04-24",
+    "last_tested": "2025-04-24",
     "working_status": true,
     "original_filename": "SimShell 1.0 - Simorgh Security MGZ.php",
     "source_path": "uncheck-shells/SimShell 1.0 - Simorgh Security MGZ.php"

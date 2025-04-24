@@ -1,0 +1,31 @@
+{
+    "filename": "xiaom.php",
+    "type": "php",
+    "size": 246,
+    "md5": "c9ee02069aa00b2b26d7b92a1ebd7ba6",
+    "connection": {
+        "method": "POST",
+        "password": "_",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "xiaom.php",
+        "source_path": "uncheck-shells/xiaom.php"
+    }
+}

@@ -1,4 +1,3 @@
-docker==6.1.3
 requests
 PyYAML
 python-dotenv
@@ -9,3 +8,5 @@ google-generativeai
 dashscope
 openai
 python-dotenv
+python-magic
+tqdm

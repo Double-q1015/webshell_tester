@@ -1,0 +1,31 @@
+{
+  "filename": "mrj.php",
+  "type": "php",
+  "size": 14433,
+  "md5": "fd701978b14df5ed03c636c1b9aae20a",
+  "connection": {
+    "method": "POST",
+    "password": "2",
+    "param_name": "cmd",
+    "encoding": "raw",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": false
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-24",
+    "last_tested": "2025-04-24",
+    "working_status": true,
+    "original_filename": "mrj.php",
+    "source_path": "uncheck-shells/mrj.php"
+  }
+}

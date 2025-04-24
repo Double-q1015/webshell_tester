@@ -1,0 +1,31 @@
+{
+  "filename": "gk.php",
+  "type": "php",
+  "size": 148455,
+  "md5": "12bb7dd9f7d575c17cb5b9733bfffc01",
+  "connection": {
+    "method": "POST",
+    "password": "ter\\x6di\\x6ea\\x6c",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": false,
+    "command_exec": false,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-24",
+    "last_tested": "2025-04-24",
+    "working_status": true,
+    "original_filename": "gk.php",
+    "source_path": "uncheck-shells/gk.php"
+  }
+}

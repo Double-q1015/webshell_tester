@@ -1,0 +1,31 @@
+{
+    "filename": "404 shell code.php",
+    "type": "php",
+    "size": 63901,
+    "md5": "b72a26901c9d3ba68ad56540836ad280",
+    "connection": {
+        "method": "POST",
+        "password": "pass",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": true,
+        "eval_usage": false,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "404 shell code.php",
+        "source_path": "uncheck-shells/404 shell code.php"
+    }
+}

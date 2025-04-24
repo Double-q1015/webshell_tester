@@ -1,0 +1,31 @@
+{
+    "filename": "getConstants2.php",
+    "type": "php",
+    "size": 426,
+    "md5": "d195080cf419a3ec0b8cbcab97f617dd",
+    "connection": {
+        "method": "POST",
+        "password": "__construct",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "getConstants2.php",
+        "source_path": "uncheck-shells/getConstants2.php"
+    }
+}

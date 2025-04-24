@@ -1,0 +1,31 @@
+{
+    "filename": "toby57解析加密一句话木马.php",
+    "type": "php",
+    "size": 849,
+    "md5": "dfe4d102f3a6419f8fd65d0ba0eec0a8",
+    "connection": {
+        "method": "POST",
+        "password": "out",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": true,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": true,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "toby57解析加密一句话木马.php",
+        "source_path": "uncheck-shells/toby57解析加密一句话木马.php"
+    }
+}

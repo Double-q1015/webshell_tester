@@ -1,14 +1,41 @@
 #!/usr/bin/env python3
 from dataclasses import dataclass
-from typing import List
+from typing import List, Dict, Any
 
 @dataclass
 class ConnectionInfo:
-    method: str
-    password: str
-    param_name: str
-    encoding: str
-    test_command: str = "echo 'test';"
+    """WebShell连接信息"""
+    def __init__(
+        self,
+        method: str = "POST",
+        password: str = None,
+        param_name: str = None,
+        encoding: str = None,
+        special_auth: Dict = None,
+        preg_replace: bool = False,
+        use_raw_post: bool = False,
+        php_version: str = None,
+        obfuscated: bool = False,
+        obfuscated_params: Dict = None,
+        test_command: str = "echo 'test';"
+    ):
+        self.method = method
+        self.password = password
+        self.param_name = param_name
+        self.encoding = encoding
+        self.special_auth = special_auth
+        self.preg_replace = preg_replace
+        self.use_raw_post = use_raw_post
+        self.php_version = php_version
+        self.obfuscated = obfuscated
+        self.obfuscated_params = obfuscated_params or {
+            'func_name': 'PBbs',
+            'decode_func': 'UpB_',
+            'param1': 'PWWk',
+            'param2': 'xfrwA',
+            'cmd_param': 'Epd'
+        }
+        self.test_command = test_command
 
 @dataclass
 class Features:

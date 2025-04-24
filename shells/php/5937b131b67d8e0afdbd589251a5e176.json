@@ -1,0 +1,31 @@
+{
+    "filename": "cpg_143_incl_xpl.php",
+    "type": "php",
+    "size": 17659,
+    "md5": "5937b131b67d8e0afdbd589251a5e176",
+    "connection": {
+        "method": "POST",
+        "password": "proxy_regex",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": true,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "cpg_143_incl_xpl.php",
+        "source_path": "uncheck-shells/cpg_143_incl_xpl.php"
+    }
+}

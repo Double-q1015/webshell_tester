@@ -22,8 +22,8 @@
     "yara_rules": []
   },
   "metadata": {
-    "discovered_date": "2025-04-25",
-    "last_tested": "2025-04-25",
+    "discovered_date": "2025-04-24",
+    "last_tested": "2025-04-24",
     "working_status": true,
     "original_filename": "mof提权带回显带清楚命令版本.php",
     "source_path": "uncheck-shells/mof提权带回显带清楚命令版本.php"

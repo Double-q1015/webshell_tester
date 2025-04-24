@@ -1,12 +1,16 @@
 FROM php:7.4-apache
 
-# 安装必要工具
+# config dns
+RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf \
+    && echo "nameserver 8.8.4.4" >> /etc/resolv.conf
+
+# install necessary tools
 RUN apt-get update && apt-get install -y \
     curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# 配置Apache
+# config apache
 RUN a2enmod rewrite \
     && echo "ServerName localhost" >> /etc/apache2/apache2.conf \
     && echo '<Directory /var/www/html>\n\
@@ -16,19 +20,19 @@ RUN a2enmod rewrite \
 </Directory>' > /etc/apache2/conf-available/custom.conf \
     && a2enconf custom
 
-# 设置工作目录
+# set working directory
 WORKDIR /var/www/html
 
-# 设置目录权限
+# set directory permissions
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-# 健康检查
+# health check
 HEALTHCHECK --interval=5s --timeout=3s --retries=3 \
     CMD curl -f http://localhost/health.php || exit 1
 
-# 暴露端口
+# expose port
 EXPOSE 80
 
-# 启动Apache
+# start apache
 CMD ["apache2-foreground"] 

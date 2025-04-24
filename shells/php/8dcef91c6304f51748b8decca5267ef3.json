@@ -1,0 +1,31 @@
+{
+    "filename": "Shu1337.php",
+    "type": "php",
+    "size": 55345,
+    "md5": "8dcef91c6304f51748b8decca5267ef3",
+    "connection": {
+        "method": "POST",
+        "password": "auth_pass",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": true,
+        "eval_usage": true,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-24",
+        "last_tested": "2025-04-24",
+        "working_status": true,
+        "original_filename": "Shu1337.php",
+        "source_path": "uncheck-shells/Shu1337.php"
+    }
+}

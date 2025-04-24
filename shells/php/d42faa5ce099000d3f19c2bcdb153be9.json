@@ -22,8 +22,8 @@
     "yara_rules": []
   },
   "metadata": {
-    "discovered_date": "2025-04-25",
-    "last_tested": "2025-04-25",
+    "discovered_date": "2025-04-24",
+    "last_tested": "2025-04-24",
     "working_status": true,
     "original_filename": "国外免杀PHP大马_未翻译.php",
     "source_path": "uncheck-shells/国外免杀PHP大马_未翻译.php"

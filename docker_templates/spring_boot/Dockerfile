@@ -1,11 +1,11 @@
 FROM maven:3.8.4-openjdk-11-slim AS builder
 
-# 添加构建参数
+# add build parameters
 ARG HTTP_PROXY
 ARG HTTPS_PROXY
 ARG NO_PROXY
 
-# 设置环境变量
+# set environment variables
 ENV HTTP_PROXY=${HTTP_PROXY} \
     HTTPS_PROXY=${HTTPS_PROXY} \
     NO_PROXY=${NO_PROXY} \
@@ -13,14 +13,14 @@ ENV HTTP_PROXY=${HTTP_PROXY} \
     https_proxy=${HTTPS_PROXY} \
     no_proxy=${NO_PROXY}
 
-# 设置工作目录
+# set working directory
 WORKDIR /build
 
-# 配置DNS和网络
+# config dns
 RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf \
     && echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
-# 配置Maven镜像和代理
+# config maven mirror and proxy
 RUN mkdir -p /root/.m2 \
     && echo '<?xml version="1.0" encoding="UTF-8"?>\
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" \
@@ -67,22 +67,22 @@ RUN mkdir -p /root/.m2 \
     </profiles>\
 </settings>' > /root/.m2/settings.xml
 
-# 复制pom.xml
+# copy pom.xml
 COPY pom.xml .
 
-# 预下载依赖（添加重试和超时设置）
+# pre-download dependencies (add retry and timeout settings)
 RUN mvn -B -e dependency:go-offline -Dmaven.wagon.http.retryHandler.count=3 -Dmaven.wagon.http.pool=false -Dmaven.wagon.httpconnectionManager.ttlSeconds=120
 
-# 复制源代码
+# copy source code
 COPY src ./src
 
-# 构建应用（添加重试和超时设置）
+# build application (add retry and timeout settings)
 RUN mvn -B -e clean package -DskipTests -Dmaven.wagon.http.retryHandler.count=3 -Dmaven.wagon.http.pool=false -Dmaven.wagon.httpconnectionManager.ttlSeconds=120
 
-# 运行环境
+# run environment
 FROM openjdk:11-jre-slim
 
-# 设置运行时代理环境变量
+# set run environment variables
 ARG HTTP_PROXY
 ARG HTTPS_PROXY
 ARG NO_PROXY
@@ -94,24 +94,24 @@ ENV HTTP_PROXY=${HTTP_PROXY} \
     https_proxy=${HTTPS_PROXY} \
     no_proxy=${NO_PROXY}
 
-# 安装必要工具
+# install necessary tools
 RUN apt-get update && apt-get install -y \
     curl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# 设置工作目录
+# set working directory
 WORKDIR /app
 
-# 从构建阶段复制jar文件
+# copy jar file from builder stage
 COPY --from=builder /build/target/*.jar app.jar
 
-# 健康检查
+# health check
 HEALTHCHECK --interval=5s --timeout=3s --retries=3 \
     CMD curl -f http://localhost:8080/health || exit 1
 
-# 暴露端口
+# expose port
 EXPOSE 8080
 
-# 启动Spring Boot应用
+# start spring boot application
 CMD ["java", "-jar", "app.jar"] 

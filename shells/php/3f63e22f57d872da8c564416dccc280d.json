@@ -1,0 +1,31 @@
+{
+    "filename": "cvwfzthj.php",
+    "type": "php",
+    "size": 85779,
+    "md5": "3f63e22f57d872da8c564416dccc280d",
+    "connection": {
+        "method": "POST",
+        "password": "zqduk",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": true,
+        "eval_usage": false,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-24",
+        "last_tested": "2025-04-24",
+        "working_status": true,
+        "original_filename": "cvwfzthj.php",
+        "source_path": "uncheck-shells/cvwfzthj.php"
+    }
+}

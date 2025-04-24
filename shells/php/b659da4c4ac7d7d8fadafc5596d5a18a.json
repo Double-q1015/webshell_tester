@@ -1,0 +1,25 @@
+{
+    "filename": "2022-09-09-05.php",
+    "type": "php",
+    "size": 58,
+    "md5": "b659da4c4ac7d7d8fadafc5596d5a18a",
+    "connection": {},
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "2022-09-09-05.php",
+        "source_path": "uncheck-shells/2022-09-09-05.php"
+    }
+}

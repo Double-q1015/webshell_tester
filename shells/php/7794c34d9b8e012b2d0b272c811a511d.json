@@ -1,0 +1,31 @@
+{
+  "filename": "fm.php",
+  "type": "php",
+  "size": 136531,
+  "md5": "7794c34d9b8e012b2d0b272c811a511d",
+  "connection": {
+    "method": "POST",
+    "password": "olddir",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": false,
+    "eval_usage": false,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-24",
+    "last_tested": "2025-04-24",
+    "working_status": true,
+    "original_filename": "fm.php",
+    "source_path": "uncheck-shells/fm.php"
+  }
+}

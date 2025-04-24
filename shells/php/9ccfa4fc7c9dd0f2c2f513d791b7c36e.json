@@ -1,0 +1,35 @@
+{
+    "filename": "googlebot.php",
+    "type": "php",
+    "size": 106,
+    "md5": "9ccfa4fc7c9dd0f2c2f513d791b7c36e",
+    "connection": {
+        "method": "GET",
+        "password": null,
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';",
+        "special_auth": {
+            "type": "user_agent",
+            "value": "Mozilla/5.0 (compatible; Googlebot/2.1;)"
+        }
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": true,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "googlebot.php",
+        "source_path": "uncheck-shells/googlebot.php"
+    }
+}

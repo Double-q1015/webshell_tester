@@ -1,0 +1,31 @@
+{
+    "filename": "ophellia.php",
+    "type": "php",
+    "size": 19580,
+    "md5": "7dc045d3b88ef16c8d5bb7786f21e544",
+    "connection": {
+        "method": "POST",
+        "password": "pass",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": true,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "ophellia.php",
+        "source_path": "uncheck-shells/ophellia.php"
+    }
+}

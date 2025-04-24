@@ -1,0 +1,31 @@
+{
+    "filename": "2009lite.php",
+    "type": "php",
+    "size": 37825,
+    "md5": "3f4d454d27ecc0013e783ed921eeecde",
+    "connection": {
+        "method": "POST",
+        "password": "errmsg",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": true,
+        "command_exec": true,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-24",
+        "last_tested": "2025-04-24",
+        "working_status": true,
+        "original_filename": "2009lite.php",
+        "source_path": "uncheck-shells/2009lite.php"
+    }
+}

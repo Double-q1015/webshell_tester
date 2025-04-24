@@ -1,0 +1,31 @@
+{
+    "filename": "ctt_sh.php",
+    "type": "php",
+    "size": 130394,
+    "md5": "671cad517edd254352fe7e0c7c981c39",
+    "connection": {
+        "method": "POST",
+        "password": "PGNlbnRlcj48Zm9udCBzaXplPTIgY29sb3I9IzAwZmYwMD5DeWJlciBUZXJyb3Jpc20gVGVhbTwvZm9udD48YnI+PGZvbnQgc2l6ZT0yPg0KyOTl/ywg6Ofs5e3l7ej/IOTo5+Dp7eAg6CDx6vDo7/LgIOTu4eDi6Os6PC9mb250PjxpbWcgc3JjPWh0dHA6Ly9vbmxpbmUubWlyYWJpbGlzLmNvbS9zY3JpcHRzL29ubGluZS5kbGw/aWNxPTMzNTk3NjAyMSZpbWc9NSBoZWlnaHQ9MTggd2lkdGg9MTg+PGZvbnQgc2l6ZT0yIGNvbG9yPSNGRkRFMDA+IFJPRE5PQzwvZm9udD48L2NlbnRlcj4=",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": true,
+        "command_exec": true,
+        "database_ops": true,
+        "eval_usage": true,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-24",
+        "last_tested": "2025-04-24",
+        "working_status": true,
+        "original_filename": "ctt_sh.php",
+        "source_path": "uncheck-shells/ctt_sh.php"
+    }
+}

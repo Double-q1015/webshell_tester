@@ -1,0 +1,31 @@
+{
+    "filename": "YXNzZXJ0YWE.php",
+    "type": "php",
+    "size": 430,
+    "md5": "8874363d5b348963927c7f517f85dd86",
+    "connection": {
+        "method": "POST",
+        "password": "fn",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "YXNzZXJ0YWE.php",
+        "source_path": "uncheck-shells/YXNzZXJ0YWE.php"
+    }
+}

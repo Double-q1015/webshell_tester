@@ -1,0 +1,31 @@
+{
+    "filename": "PHP Shell.php",
+    "type": "php",
+    "size": 37240,
+    "md5": "a2f8fa4cce578fc9c06f8e674b9e63fd",
+    "connection": {
+        "method": "POST",
+        "password": "http_auth_user",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": true,
+        "command_exec": true,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "PHP Shell.php",
+        "source_path": "uncheck-shells/PHP Shell.php"
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "filename": "comment-php5.php",
+    "type": "php",
+    "size": 382,
+    "md5": "2f9ad7d6f80948432175ad8d1c652c2f",
+    "connection": {
+        "method": "POST",
+        "password": "fn",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "comment-php5.php",
+        "source_path": "uncheck-shells/comment-php5.php"
+    }
+}

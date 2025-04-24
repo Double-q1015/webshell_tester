@@ -1,0 +1,31 @@
+{
+    "filename": "write.php",
+    "type": "php",
+    "size": 181,
+    "md5": "32b344f701e65bc3bf8224d0d7a5e747",
+    "connection": {
+        "method": "POST",
+        "password": "txt",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": true,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": true,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-24",
+        "last_tested": "2025-04-24",
+        "working_status": true,
+        "original_filename": "write.php",
+        "source_path": "uncheck-shells/write.php"
+    }
+}

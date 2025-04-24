@@ -1,0 +1,31 @@
+{
+    "filename": "ghost.php",
+    "type": "php",
+    "size": 73282,
+    "md5": "38dc8383da0859dca82cf0c943dbf16d",
+    "connection": {
+        "method": "POST",
+        "password": "code",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "ghost.php",
+        "source_path": "uncheck-shells/ghost.php"
+    }
+}

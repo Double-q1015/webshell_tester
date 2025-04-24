@@ -1,0 +1,31 @@
+{
+    "filename": "PHPRemoteView.php",
+    "type": "php",
+    "size": 88607,
+    "md5": "29420106d9a81553ef0d1ca72b9934d9",
+    "connection": {
+        "method": "POST",
+        "password": "version",
+        "param_name": "shell",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": true,
+        "command_exec": true,
+        "database_ops": false,
+        "eval_usage": true,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "PHPRemoteView.php",
+        "source_path": "uncheck-shells/PHPRemoteView.php"
+    }
+}

@@ -1,0 +1,31 @@
+{
+  "filename": "gw.php",
+  "type": "php",
+  "size": 106674,
+  "md5": "6ca1fe8db1ad4e37b9c6263bf86d34f7",
+  "connection": {
+    "method": "POST",
+    "password": "pass",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": true,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-24",
+    "last_tested": "2025-04-24",
+    "working_status": true,
+    "original_filename": "gw.php",
+    "source_path": "uncheck-shells/gw.php"
+  }
+}

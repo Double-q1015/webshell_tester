@@ -1,0 +1,31 @@
+{
+    "filename": "bh.php",
+    "type": "php",
+    "size": 251850,
+    "md5": "8421dbc286d27630ee1316e2702bede0",
+    "connection": {
+        "method": "POST",
+        "password": "auth_pass",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": true,
+        "eval_usage": true,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "bh.php",
+        "source_path": "uncheck-shells/bh.php"
+    }
+}

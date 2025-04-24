@@ -1,0 +1,31 @@
+{
+    "filename": "devshell.php",
+    "type": "php",
+    "size": 26186,
+    "md5": "d9c087b9afef970361fe61ae918d1388",
+    "connection": {
+        "method": "POST",
+        "password": "shell_name",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": true,
+        "eval_usage": true,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-24",
+        "last_tested": "2025-04-24",
+        "working_status": true,
+        "original_filename": "devshell.php",
+        "source_path": "uncheck-shells/devshell.php"
+    }
+}

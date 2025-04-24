@@ -1,0 +1,31 @@
+{
+    "filename": "xslt.php",
+    "type": "php",
+    "size": 539,
+    "md5": "70523edfee6c387ed98472ce751680f0",
+    "connection": {
+        "method": "POST",
+        "password": "xml",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": true,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-24",
+        "last_tested": "2025-04-24",
+        "working_status": true,
+        "original_filename": "xslt.php",
+        "source_path": "uncheck-shells/xslt.php"
+    }
+}

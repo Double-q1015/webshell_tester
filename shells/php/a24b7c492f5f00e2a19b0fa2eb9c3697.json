@@ -1,0 +1,31 @@
+{
+    "filename": "remview_fix.php",
+    "type": "php",
+    "size": 88455,
+    "md5": "a24b7c492f5f00e2a19b0fa2eb9c3697",
+    "connection": {
+        "method": "POST",
+        "password": "version",
+        "param_name": "shell",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": true,
+        "command_exec": true,
+        "database_ops": false,
+        "eval_usage": true,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "remview_fix.php",
+        "source_path": "uncheck-shells/remview_fix.php"
+    }
+}

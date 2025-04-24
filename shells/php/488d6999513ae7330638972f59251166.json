@@ -1,0 +1,31 @@
+{
+  "filename": "shell-v3.php",
+  "type": "php",
+  "size": 123169,
+  "md5": "488d6999513ae7330638972f59251166",
+  "connection": {
+    "method": "POST",
+    "password": "password",
+    "param_name": "cmd",
+    "encoding": "base64",
+    "test_command": "echo 'test';"
+  },
+  "features": {
+    "file_upload": true,
+    "command_exec": true,
+    "database_ops": true,
+    "eval_usage": false,
+    "obfuscated": true
+  },
+  "detection": {
+    "antivirus_score": 0,
+    "yara_rules": []
+  },
+  "metadata": {
+    "discovered_date": "2025-04-24",
+    "last_tested": "2025-04-24",
+    "working_status": true,
+    "original_filename": "shell-v3.php",
+    "source_path": "uncheck-shells/shell-v3.php"
+  }
+}

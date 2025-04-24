@@ -1,0 +1,31 @@
+{
+    "filename": "5678.php",
+    "type": "php",
+    "size": 147012,
+    "md5": "8d435457a4ccaaa8fad4afd405e95088",
+    "connection": {
+        "method": "POST",
+        "password": "info",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": true,
+        "eval_usage": true,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "5678.php",
+        "source_path": "uncheck-shells/5678.php"
+    }
+}

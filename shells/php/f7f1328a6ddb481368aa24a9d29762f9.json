@@ -1,0 +1,31 @@
+{
+    "filename": "no2.php",
+    "type": "php",
+    "size": 1120,
+    "md5": "f7f1328a6ddb481368aa24a9d29762f9",
+    "connection": {
+        "method": "POST",
+        "password": "_",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": true,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "no2.php",
+        "source_path": "uncheck-shells/no2.php"
+    }
+}

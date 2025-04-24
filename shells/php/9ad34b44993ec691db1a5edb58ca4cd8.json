@@ -1,0 +1,32 @@
+{
+    "filename": "b374k-2.7.source.php",
+    "type": "php",
+    "size": 137137,
+    "md5": "9ad34b44993ec691db1a5edb58ca4cd8",
+    "connection": {
+        "method": "POST",
+        "password": "s_pass",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';",
+        "special_auth": null
+    },
+    "features": {
+        "file_upload": true,
+        "command_exec": true,
+        "database_ops": true,
+        "eval_usage": true,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "b374k-2.7.source.php",
+        "source_path": "uncheck-shells/b374k-2.7.source.php"
+    }
+}

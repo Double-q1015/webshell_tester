@@ -22,8 +22,8 @@
     "yara_rules": []
   },
   "metadata": {
-    "discovered_date": "2025-04-25",
-    "last_tested": "2025-04-25",
+    "discovered_date": "2025-04-24",
+    "last_tested": "2025-04-24",
     "working_status": true,
     "original_filename": "wso2.5.php",
     "source_path": "uncheck-shells/wso2.5.php"

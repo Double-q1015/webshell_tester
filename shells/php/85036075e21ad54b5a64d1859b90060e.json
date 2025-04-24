@@ -1,0 +1,31 @@
+{
+    "filename": "wloymzuk.php",
+    "type": "php",
+    "size": 85773,
+    "md5": "85036075e21ad54b5a64d1859b90060e",
+    "connection": {
+        "method": "POST",
+        "password": "fgnex",
+        "param_name": "cmd",
+        "encoding": "base64",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "wloymzuk.php",
+        "source_path": "uncheck-shells/wloymzuk.php"
+    }
+}

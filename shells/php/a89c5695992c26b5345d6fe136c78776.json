@@ -1,0 +1,31 @@
+{
+    "filename": "b374k-2.3.poly.php",
+    "type": "php",
+    "size": 60244,
+    "md5": "a89c5695992c26b5345d6fe136c78776",
+    "connection": {
+        "method": "POST",
+        "password": "s_pass",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "b374k-2.3.poly.php",
+        "source_path": "uncheck-shells/b374k-2.3.poly.php"
+    }
+}

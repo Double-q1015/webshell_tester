@@ -22,8 +22,8 @@
     "yara_rules": []
   },
   "metadata": {
-    "discovered_date": "2025-04-25",
-    "last_tested": "2025-04-25",
+    "discovered_date": "2025-04-24",
+    "last_tested": "2025-04-24",
     "working_status": true,
     "original_filename": "bypass-dog-2020-01-30.php",
     "source_path": "uncheck-shells/bypass-dog-2020-01-30.php"

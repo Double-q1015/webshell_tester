@@ -1,0 +1,31 @@
+{
+    "filename": "AntSword_2021-03-06.php",
+    "type": "php",
+    "size": 405,
+    "md5": "d2b98ee660d8dcc00333cc29e428eb38",
+    "connection": {
+        "method": "POST",
+        "password": "__construct",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "AntSword_2021-03-06.php",
+        "source_path": "uncheck-shells/AntSword_2021-03-06.php"
+    }
+}

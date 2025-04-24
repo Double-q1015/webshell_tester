@@ -1,0 +1,31 @@
+{
+    "filename": "WinX Shell.php",
+    "type": "php",
+    "size": 5057,
+    "md5": "17ab5086aef89d4951fe9b7c7a561dda",
+    "connection": {
+        "method": "POST",
+        "password": "cmd",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": true,
+        "command_exec": true,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "WinX Shell.php",
+        "source_path": "uncheck-shells/WinX Shell.php"
+    }
+}

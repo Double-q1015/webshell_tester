@@ -1,0 +1,31 @@
+{
+    "filename": "Exception.php",
+    "type": "php",
+    "size": 292,
+    "md5": "6164f73a01a67765d06a74a519aa32da",
+    "connection": {
+        "method": "POST",
+        "password": "value",
+        "param_name": "cmd",
+        "encoding": "raw",
+        "test_command": "echo 'test';"
+    },
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": true,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "Exception.php",
+        "source_path": "uncheck-shells/Exception.php"
+    }
+}
