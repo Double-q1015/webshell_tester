@@ -1,0 +1,26 @@
+environment:
+  PHP_VERSION: "7.4"
+  APACHE_VERSION: "2.4"
+  DOCUMENT_ROOT: "/var/www/html"
+  
+ports:
+  - "80:80"
+
+volumes:
+  - "./shells:/var/www/html/shells:ro"
+  
+security:
+  max_execution_time: 60
+  memory_limit: "256M"
+  disabled_functions:
+    - ftp_connect
+    - ftp_get
+    - ftp_put
+    - ftp_nb_get
+    - ftp_nb_put
+    
+logging:
+  driver: "json-file"
+  options:
+    max-size: "10m"
+    max-file: "3" 

@@ -1,0 +1,11 @@
+docker==6.1.3
+requests
+PyYAML
+python-dotenv
+aiohttp
+pytest
+loguru
+google-generativeai
+dashscope
+openai
+python-dotenv

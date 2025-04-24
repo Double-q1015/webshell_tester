@@ -1,0 +1,12 @@
+{
+  "name": "nodejs-webshell-env",
+  "version": "1.0.0",
+  "description": "Node.js WebShell Testing Environment",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+} 
