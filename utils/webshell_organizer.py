@@ -19,6 +19,7 @@ from utils.mylogger import setup_logger
 from utils.webshell_tester import WebshellTester
 from utils.models import WebshellConfig, ConnectionInfo, Features, Detection, Metadata
 from utils.logo import logo
+from utils.output import save_results_as_html
 
 class WebshellAnalyzer:
     def __init__(self):
@@ -105,12 +106,11 @@ class WebshellAnalyzer:
             logger.debug(f"Identified connection info: {connection}")
 
             # 分析特征
-            # analyze file features
             logger.debug("Starting to analyze file features...")
             features = self._analyze_features(text_content)
             logger.debug(f"Identified features: {features}")
 
-            # create config
+            # 创建配置（移除错误的 features 赋值）
             config = WebshellConfig(
                 filename=os.path.basename(file_path),
                 type=file_type,
@@ -179,70 +179,92 @@ class WebshellAnalyzer:
         """分析WebShell连接方式"""
         # 初始化连接信息
         connection_info = ConnectionInfo()
+        connection_info.method = 'POST'  # 默认设置为POST
         
-        # 检测连接方法
-        if "$_GET" in content:
-            connection_info.method = "GET"
-        elif "$_POST" in content or "php://input" in content:
-            connection_info.method = "POST"
-            if "php://input" in content:
-                connection_info.use_raw_post = True
+        # 检测是否使用eval
+        if 'eval(' in content or 'assert(' in content:
+            connection_info.eval_usage = True
         
-        # 检测混淆的 webshell
-        if "${'_REQUEST'}" in content and "if (!empty(" in content:
-            connection_info.obfuscated = True
-            # 尝试提取参数名
-            import re
-            pattern = r"\$(\w+)\s*=\s*\$\{'_REQUEST'\}"
-            match = re.search(pattern, content)
-            if match:
-                var_name = match.group(1)
-                # 查找参数名
-                param_pattern = rf"if \(!empty\(\${var_name}\['(\w+)'\]\)\)"
-                param_match = re.search(param_pattern, content)
-                if param_match:
-                    connection_info.obfuscated_params = {
-                        'func_name': param_match.group(1),
-                        'decode_func': 'UpB_',
-                        'param1': 'PWWk',
-                        'param2': 'xfrwA',
-                        'cmd_param': 'Epd'
+        # 检测是否使用原始POST数据
+        if 'php://input' in content:
+            connection_info.use_raw_post = True
+            return connection_info
+            
+        # 检测特殊认证
+        if 'HTTP_USER_AGENT' in content:
+            # 尝试多种匹配模式
+            auth_patterns = [
+                r"HTTP_USER_AGENT'\s*===?\s*'([^']+)'",
+                r'HTTP_USER_AGENT\'\]==[\'"]([^\'"]+)[\'"]',
+                r'\$_SERVER\s*\[\s*[\'"]HTTP_USER_AGENT[\'"]\s*\]\s*===?\s*[\'"]([^\'"]+)[\'"]'
+            ]
+            
+            for pattern in auth_patterns:
+                match = re.search(pattern, content)
+                if match:
+                    connection_info.special_auth = {
+                        'type': 'user_agent',
+                        'value': match.group(1)
                     }
+                    break
+
+        # 检测动态函数调用（如 key($_GET)）
+        dynamic_func_pattern = r'\$?\w+\s*=\s*\(?key\s*\(\s*\$_GET\s*\)'
+        if re.search(dynamic_func_pattern, content):
+            connection_info.method = 'GET'
+            connection_info.special_auth = {
+                'type': 'dynamic_function',
+                'value': 'key($_GET)'
+            }
+            # 检查POST参数
+            post_param_match = re.search(r'\$_POST\s*\[\s*[\'"](\w+)[\'"]\s*\]', content)
+            if post_param_match:
+                connection_info.param_name = post_param_match.group(1)
+            return connection_info
+
+        # 检测base64编码
+        if 'base64_decode' in content:
+            connection_info.encoding = 'base64'
+            # 提取base64编码的参数名
+            base64_match = re.search(r'base64_decode\(\$_POST\[[\'"]([\w]+)[\'"]\]\)', content)
+            if base64_match:
+                connection_info.param_name = base64_match.group(1)
+                return connection_info
         
-        # 检测密码
-        password_patterns = [
-            r'if\s*\(\s*isset\s*\(\s*\$_(?:GET|POST|REQUEST)\s*\[\s*[\'"]([^\'"]+)[\'"]\s*\]\s*\)\s*\)',
-            r'if\s*\(\s*!\s*empty\s*\(\s*\$_(?:GET|POST|REQUEST)\s*\[\s*[\'"]([^\'"]+)[\'"]\s*\]\s*\)\s*\)',
-            r'if\s*\(\s*\$_(?:GET|POST|REQUEST)\s*\[\s*[\'"]([^\'"]+)[\'"]\s*\]\s*==\s*[\'"]([^\'"]+)[\'"]\s*\)'
-        ]
-        
-        for pattern in password_patterns:
-            match = re.search(pattern, content)
-            if match:
-                connection_info.password = match.group(1)
-                break
-        
-        # 检测参数名
-        param_patterns = [
-            r'\$_(?:GET|POST|REQUEST)\s*\[\s*[\'"]([^\'"]+)[\'"]\s*\]',
-            r'eval\s*\(\s*\$_(?:GET|POST|REQUEST)\s*\[\s*[\'"]([^\'"]+)[\'"]\s*\]\s*\)',
-            r'system\s*\(\s*\$_(?:GET|POST|REQUEST)\s*\[\s*[\'"]([^\'"]+)[\'"]\s*\]\s*\)'
-        ]
-        
-        for pattern in param_patterns:
-            match = re.search(pattern, content)
-            if match:
-                connection_info.param_name = match.group(1)
-                break
-        
-        # 检测编码
-        if "base64_decode" in content:
-            connection_info.encoding = "base64"
-        
-        # 检测 preg_replace
-        if "preg_replace" in content and "/e" in content:
+        # 检测preg_replace
+        if 'preg_replace' in content and '/e' in content:
             connection_info.preg_replace = True
-            connection_info.php_version = "5.4"  # preg_replace /e 在 PHP 5.5 中被废弃
+            # 提取preg_replace参数名
+            preg_match = re.search(r'preg_replace\([^,]+,\s*\$_POST\[[\'"]([\w]+)[\'"]\]\s*,', content)
+            if preg_match:
+                connection_info.param_name = preg_match.group(1)
+                return connection_info
+        
+        # 提取参数名和密码
+        # 首先检查是否有密码保护
+        pwd_match = re.search(r'\$_(POST|GET)\[[\'"]([\w]+)[\'"]\]\s*===?\s*[\'"]([^\'"]+)[\'"]', content)
+        if pwd_match:
+            connection_info.password_param = pwd_match.group(2)
+            connection_info.password = pwd_match.group(3)
+            # 继续寻找命令参数
+            cmd_match = re.search(r'eval\(\$_POST\[[\'"]([\w]+)[\'"]\]\)', content)
+            if cmd_match and cmd_match.group(1) != connection_info.password_param:
+                connection_info.param_name = cmd_match.group(1)
+            return connection_info
+        
+        # 如果还没有找到参数名，尝试其他方式
+        if not connection_info.param_name:
+            # 检查简单的eval
+            eval_match = re.search(r'@?eval\(\$_(POST|GET|REQUEST)\[[\'"]([\w]+)[\'"]\]\)', content)
+            if eval_match:
+                connection_info.param_name = eval_match.group(2)
+                connection_info.method = eval_match.group(1)
+            else:
+                # 检查一般的参数
+                param_match = re.search(r'\$_(POST|GET|REQUEST)\[[\'"]([\w]+)[\'"]\]', content)
+                if param_match:
+                    connection_info.param_name = param_match.group(2)
+                    connection_info.method = param_match.group(1)
         
         return connection_info
 
@@ -275,25 +297,30 @@ class WebshellAnalyzer:
         return features
 
 class WebshellOrganizer:
-    def __init__(self, source_dir: str, target_dir: str, test_connection: bool = True, skip_exist: bool = False):
+    def __init__(self, source_dir: str, target_dir: str, test_connection: bool = True, skip_exist: bool = False, output_format: str = 'json', verbose: bool = False):
         self.source_dir = source_dir
         self.target_dir = target_dir
         self.analyzer = WebshellAnalyzer()
         self.tester = WebshellTester() if test_connection else None
         self.skip_exist = skip_exist
+        self.output_format = output_format
+        self.verbose = verbose
         self.processed_files = []
         self.failed_files = []
         self.test_results = {
             'success': [],
             'failed': []
         }
+        self.execution_details = []  # 存储详细的执行信息
         self.stats = {
             'start_time': datetime.datetime.now(),
             'end_time': None,
             'total_files': 0,
             'successful_files': 0,
             'failed_files': 0,
-            'skipped_files': 0
+            'skipped_files': 0,
+            'total_execution_time': 0,
+            'average_execution_time': 0
         }
 
     def process_directory(self):
@@ -310,8 +337,8 @@ class WebshellOrganizer:
                 file_path = os.path.join(root, file)
                 all_files.append(file_path)
 
-        # 暂时只检测50个文件
-        all_files = all_files[:50]
+        # 暂时只检测20个文件
+        all_files = all_files[:20]
         self.stats['total_files'] = len(all_files)
         
         # use tqdm to show progress
@@ -336,33 +363,89 @@ class WebshellOrganizer:
         os.makedirs(os.path.join(self.target_dir, 'other'), exist_ok=True)
 
     def _process_file(self, file_path: str):
-        """Process a single file"""
-        logger.info(f"Processing file: {file_path}")
+        """处理单个文件"""
+        logger.info(f"处理文件: {file_path}")
+        execution_detail = {
+            'file': file_path,
+            'steps': [],
+            'start_time': datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            'end_time': None,
+            'success': False,
+            'error': None
+        }
 
         try:
-            # analyze file
+            # 分析文件
+            step_start = datetime.datetime.now()
             config = self.analyzer.analyze_file(file_path)
+            step_end = datetime.datetime.now()
+            
+            execution_detail['steps'].append({
+                'step': '文件分析',
+                'start_time': step_start.strftime("%Y-%m-%d %H:%M:%S"),
+                'end_time': step_end.strftime("%Y-%m-%d %H:%M:%S"),
+                'duration': (step_end - step_start).total_seconds(),
+                'success': bool(config),
+                'details': {
+                    'file_type': config.type if config else None,
+                    'size': config.size if config else None,
+                    'md5': config.md5 if config else None,
+                    'features': asdict(config.features) if config and config.features else None
+                }
+            })
+
             if not config:
+                execution_detail['error'] = "文件分析失败"
                 self.failed_files.append(file_path)
+                execution_detail['end_time'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                self.execution_details.append(execution_detail)
                 return
 
-            # determine target path
+            # 确定目标路径
             target_subdir = config.type if config.type else 'other'
             target_filename = f"{config.md5}.{config.type}"
             target_path = os.path.join(self.target_dir, target_subdir, target_filename)
             json_path = os.path.join(self.target_dir, target_subdir, f"{config.md5}.json")
 
-            # check if file exists
+            # 检查文件是否存在
             if self.skip_exist and os.path.exists(target_path) and os.path.exists(json_path):
-                logger.info(f"File already exists, skipping: {file_path}")
+                execution_detail['steps'].append({
+                    'step': '文件检查',
+                    'success': True,
+                    'details': {
+                        'message': '文件已存在，跳过处理',
+                        'target_path': target_path
+                    }
+                })
+                logger.info(f"文件已存在，跳过: {file_path}")
                 self.stats['skipped_files'] += 1
+                execution_detail['success'] = True
+                execution_detail['end_time'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                self.execution_details.append(execution_detail)
                 return
 
-            # test connection
+            # 测试连接
             connection_success = False
             if self.tester and config.type in ['php', 'jsp']:
-                logger.info(f"Testing connection: {file_path}")
-                connection_success = self.tester.test_connection_sync(config)
+                logger.info(f"测试连接: {file_path}")
+                step_start = datetime.datetime.now()
+                test_result = self.tester.test_connection_sync(config)
+                step_end = datetime.datetime.now()
+                
+                execution_detail['steps'].append({
+                    'step': '连接测试',
+                    'start_time': step_start.strftime("%Y-%m-%d %H:%M:%S"),
+                    'end_time': step_end.strftime("%Y-%m-%d %H:%M:%S"),
+                    'duration': (step_end - step_start).total_seconds(),
+                    'success': test_result,
+                    'details': {
+                        'test_commands': self.tester.last_commands if hasattr(self.tester, 'last_commands') else [],
+                        'test_responses': self.tester.last_responses if hasattr(self.tester, 'last_responses') else [],
+                        'connection_info': asdict(config.connection)
+                    }
+                })
+                
+                connection_success = test_result
                 config.metadata.working_status = connection_success
                 
                 if connection_success:
@@ -370,17 +453,48 @@ class WebshellOrganizer:
                 else:
                     self.test_results['failed'].append(file_path)
                     self.failed_files.append(file_path)
-                    logger.warning(f"Connection test failed, skipping file: {file_path}")
+                    execution_detail['error'] = "连接测试失败"
+                    logger.warning(f"连接测试失败，跳过文件: {file_path}")
+                    execution_detail['end_time'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    self.execution_details.append(execution_detail)
                     return
 
-            # only files that pass the test or don't need testing will be organized
+            # 只有通过测试或不需要测试的文件才会被整理
             if not self.tester or connection_success:
-                # copy file
+                # 复制文件
+                step_start = datetime.datetime.now()
                 shutil.copy2(file_path, target_path)
+                step_end = datetime.datetime.now()
+                
+                execution_detail['steps'].append({
+                    'step': '文件复制',
+                    'start_time': step_start.strftime("%Y-%m-%d %H:%M:%S"),
+                    'end_time': step_end.strftime("%Y-%m-%d %H:%M:%S"),
+                    'duration': (step_end - step_start).total_seconds(),
+                    'success': True,
+                    'details': {
+                        'source': file_path,
+                        'target': target_path
+                    }
+                })
 
-                # save config file
+                # 保存配置文件
+                step_start = datetime.datetime.now()
                 with open(json_path, 'w', encoding='utf-8') as f:
-                    json.dump(asdict(config), f, indent=4, ensure_ascii=False)
+                    json.dump(config.to_dict(), f, indent=4, ensure_ascii=False)
+                step_end = datetime.datetime.now()
+                
+                execution_detail['steps'].append({
+                    'step': '保存配置',
+                    'start_time': step_start.strftime("%Y-%m-%d %H:%M:%S"),
+                    'end_time': step_end.strftime("%Y-%m-%d %H:%M:%S"),
+                    'duration': (step_end - step_start).total_seconds(),
+                    'success': True,
+                    'details': {
+                        'config_path': json_path,
+                        'config': config.to_dict() if self.verbose else None
+                    }
+                })
 
                 self.processed_files.append({
                     'source': file_path,
@@ -388,64 +502,104 @@ class WebshellOrganizer:
                     'config': json_path,
                     'working': config.metadata.working_status
                 })
-                logger.success(f"Successfully organized file: {file_path} -> {target_path}")
+                execution_detail['success'] = True
+                logger.success(f"成功处理文件: {file_path} -> {target_path}")
 
         except Exception as e:
-            logger.error(f"Failed to process file: {file_path}: {str(e)}")
+            logger.error(f"处理文件失败: {file_path}: {str(e)}")
+            execution_detail['error'] = str(e)
             self.failed_files.append(file_path)
+            
+        execution_detail['end_time'] = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.execution_details.append(execution_detail)
 
     def _generate_report(self):
-        """Generate processing report"""
+        """生成处理报告"""
         duration = (self.stats['end_time'] - self.stats['start_time']).total_seconds()
+        self.stats['total_execution_time'] = duration
+        self.stats['average_execution_time'] = duration / self.stats['total_files'] if self.stats['total_files'] > 0 else 0
 
-        logger.info("\n=== Processing report ===")
-        logger.info(f"Total files: {self.stats['total_files']}")
-        logger.info(f"Successful organized: {self.stats['successful_files']} files")
-        logger.info(f"Failed/Unsuccessful: {self.stats['failed_files']} files")
-        logger.info(f"Skipped existing: {self.stats['skipped_files']} files")
-        logger.info(f"Processing time: {duration:.2f} seconds")
+        logger.info("\n=== 处理报告 ===")
+        logger.info(f"总文件数: {self.stats['total_files']}")
+        logger.info(f"成功处理: {self.stats['successful_files']} 个文件")
+        logger.info(f"处理失败: {self.stats['failed_files']} 个文件")
+        logger.info(f"跳过已存在: {self.stats['skipped_files']} 个文件")
+        logger.info(f"处理总时间: {duration:.2f} 秒")
 
         if self.tester:
-            logger.info("\n=== Connection test report ===")
-            logger.info(f"Success: {len(self.test_results['success'])} files")
-            logger.info(f"Failed: {len(self.test_results['failed'])} files")
+            logger.info("\n=== 连接测试报告 ===")
+            logger.info(f"测试成功: {len(self.test_results['success'])} 个文件")
+            logger.info(f"测试失败: {len(self.test_results['failed'])} 个文件")
 
         if self.failed_files:
-            logger.info("\nFailed/Unsuccessful file list:")
+            logger.info("\n失败文件列表:")
             for file in self.failed_files:
                 if file in self.test_results['failed']:
-                    logger.info(f"- {file} (Connection test failed)")
+                    logger.info(f"- {file} (连接测试失败)")
                 else:
-                    logger.info(f"- {file} (Failed to process)")
+                    logger.info(f"- {file} (处理失败)")
 
         if self.processed_files:
-            logger.info("\nSuccessfully organized file list:")
+            logger.info("\n成功处理的文件列表:")
             for file in self.processed_files:
                 logger.info(f"- {file['source']} -> {file['target']}")
 
-        # save report to file
-        report_path = os.path.join(self.target_dir, 'report.json')
-        with open(report_path, 'w', encoding='utf-8') as f:
-            json.dump({
-                'stats': self.stats,
-                'processed_files': self.processed_files,
-                'failed_files': self.failed_files,
-                'test_results': self.test_results
-            }, f, indent=4, ensure_ascii=False, default=str)
+        # 准备报告数据
+        report_data = {
+            'stats': self.stats,
+            'processed_files': self.processed_files,
+            'failed_files': self.failed_files,
+            'test_results': self.test_results,
+            'total_commands': len(self.processed_files),
+            'successful_commands': len(self.test_results['success']),
+            'execution_details': self.execution_details if self.verbose else None,
+            'results': []
+        }
 
-def test_single_file(file_path: str, verbose: bool = False):
+        # 添加成功处理的文件
+        for file in self.processed_files:
+            report_data['results'].append({
+                'command': 'analyze_and_organize',
+                'success': True,
+                'output': f"已处理: {file['source']} -> {file['target']}",
+                'error': None
+            })
+            
+        # 添加失败的文件
+        for file_path in self.failed_files:
+            report_data['results'].append({
+                'command': 'analyze_and_organize',
+                'success': False,
+                'output': None,
+                'error': "连接测试失败" if file_path in self.test_results['failed'] else "处理失败",
+                'file': file_path
+            })
+
+        # 保存报告
+        if self.output_format == 'html':
+            save_results_as_html(report_data, self.target_dir)
+            logger.info(f"\nHTML报告已生成在: {self.target_dir}")
+        else:
+            # 保存JSON报告
+            report_path = os.path.join(self.target_dir, 'report.json')
+            with open(report_path, 'w', encoding='utf-8') as f:
+                json.dump(report_data, f, indent=4, ensure_ascii=False, default=str)
+            logger.info(f"\nJSON报告已生成在: {report_path}")
+
+def test_single_file(file_path: str, verbose: bool = False, keep_container: bool = False):
     """
     Test the analysis and connection of a single file
     Args:
         file_path: str, the path of the file to be tested
         verbose: bool, whether to show detailed information
+        keep_container: bool, whether to keep the container running after testing
     """
     if not os.path.exists(file_path):
         logger.error(f"File does not exist: {file_path}")
         return
 
     analyzer = WebshellAnalyzer()
-    tester = WebshellTester()
+    tester = WebshellTester(keep_container=keep_container)
 
     # analyze file
     # print analysis progress
@@ -500,23 +654,32 @@ def test_single_file(file_path: str, verbose: bool = False):
             preview = content[:500] + "..." if len(content) > 500 else content
             logger.info(preview)
 
+    if keep_container:
+        logger.info("容器将在测试后保持运行")
+        logger.info("请在测试完成后手动停止和删除容器")
+
 def main():
     setup_logger()
     logo()
     
-    parser = argparse.ArgumentParser(description='WebShell Auto Organizer')
-    parser.add_argument('source_dir', nargs='?', help='Source directory path')
-    parser.add_argument('target_dir', nargs='?', help='Target directory path')
-    parser.add_argument('--no-test', action='store_true', help='Not perform connection test')
-    parser.add_argument('--skip-exist', action='store_true', help='Skip existing files')
-    parser.add_argument('--test-file', help='Test a single file')
-    parser.add_argument('--verbose', '-v', action='store_true', help='Show detailed information')
+    parser = argparse.ArgumentParser(description='WebShell自动整理工具')
+    parser.add_argument('source_dir', nargs='?', help='源目录路径')
+    parser.add_argument('target_dir', nargs='?', help='目标目录路径')
+    parser.add_argument('--no-test', action='store_true', help='不执行连接测试')
+    parser.add_argument('--skip-exist', action='store_true', help='跳过已存在的文件')
+    parser.add_argument('--test-file', help='测试单个文件')
+    parser.add_argument('--keep-container', action='store_true', help='测试完成后保持容器运行（仅在 --test-file 模式下有效）')
+    parser.add_argument('--verbose', '-v', action='store_true', help='显示详细信息')
+    parser.add_argument('--format', choices=['json', 'html'], default='json', help='报告输出格式 (json 或 html)')
     
     args = parser.parse_args()
 
     if args.test_file:
-        # test a single file
-        test_single_file(args.test_file, args.verbose)
+        # 测试单个文件
+        if args.keep_container:
+            logger.info("容器将在测试后保持运行")
+            logger.info("请在测试完成后手动停止和删除容器")
+        test_single_file(args.test_file, args.verbose, args.keep_container)
         return
 
     if not args.source_dir or not args.target_dir:
@@ -527,7 +690,9 @@ def main():
         args.source_dir,
         args.target_dir,
         test_connection=not args.no_test,
-        skip_exist=args.skip_exist
+        skip_exist=args.skip_exist,
+        output_format=args.format,
+        verbose=args.verbose
     )
     organizer.process_directory()
 

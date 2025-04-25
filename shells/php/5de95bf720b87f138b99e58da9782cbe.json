@@ -1,0 +1,25 @@
+{
+    "filename": "5de95bf720b87f138b99e58da9782cbe.php",
+    "type": "php",
+    "size": 1497,
+    "md5": "5de95bf720b87f138b99e58da9782cbe",
+    "connection": {},
+    "features": {
+        "file_upload": false,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": false
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "5de95bf720b87f138b99e58da9782cbe.php",
+        "source_path": "/data/webshell-gang/cleaned_dataset/webshell/5de95bf720b87f138b99e58da9782cbe.php"
+    }
+}

@@ -1,31 +1,25 @@
 {
-  "filename": "wso-4.2.2.php",
-  "type": "php",
-  "size": 77524,
-  "md5": "2998de8b29315b51638a25eb0a1dc318",
-  "connection": {
-    "method": "POST",
-    "password": "charset",
-    "param_name": "cmd",
-    "encoding": "base64",
-    "test_command": "echo 'test';"
-  },
-  "features": {
-    "file_upload": true,
-    "command_exec": true,
-    "database_ops": true,
-    "eval_usage": true,
-    "obfuscated": true
-  },
-  "detection": {
-    "antivirus_score": 0,
-    "yara_rules": []
-  },
-  "metadata": {
-    "discovered_date": "2025-04-24",
-    "last_tested": "2025-04-24",
-    "working_status": true,
-    "original_filename": "wso-4.2.2.php",
-    "source_path": "uncheck-shells/wso-4.2.2.php"
-  }
+    "filename": "7737cbfe0d38c66d20d0afdc71bddc0c.php",
+    "type": "php",
+    "size": 77524,
+    "md5": "2998de8b29315b51638a25eb0a1dc318",
+    "connection": {},
+    "features": {
+        "file_upload": true,
+        "command_exec": true,
+        "database_ops": true,
+        "eval_usage": true,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "7737cbfe0d38c66d20d0afdc71bddc0c.php",
+        "source_path": "/data/webshell-gang/cleaned_dataset/webshell/7737cbfe0d38c66d20d0afdc71bddc0c.php"
+    }
 }

@@ -1,75 +1,324 @@
 {
     "stats": {
-        "start_time": "2025-04-25 01:18:42.136879",
-        "end_time": "2025-04-25 01:18:48.645662",
+        "start_time": "2025-04-25 18:03:57.037285",
+        "end_time": "2025-04-25 18:08:22.493047",
         "total_files": 50,
-        "successful_files": 1,
-        "failed_files": 49,
+        "successful_files": 41,
+        "failed_files": 9,
         "skipped_files": 0
     },
     "processed_files": [
         {
-            "source": "uncheck-shells/biantai.php",
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/752081881c3848cae8e395cd0d4422ca.php",
+            "target": "shells/php/752081881c3848cae8e395cd0d4422ca.php",
+            "config": "shells/php/752081881c3848cae8e395cd0d4422ca.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/e57cd978725a081e84931961969ed528.php",
+            "target": "shells/php/e57cd978725a081e84931961969ed528.php",
+            "config": "shells/php/e57cd978725a081e84931961969ed528.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/297c2c4c246ae48b7564e60026ae2758.php",
+            "target": "shells/php/297c2c4c246ae48b7564e60026ae2758.php",
+            "config": "shells/php/297c2c4c246ae48b7564e60026ae2758.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/360e397dc4d4cb5b06725d873dc3f886.php",
+            "target": "shells/php/90208b0d9682a2e0adf2a5c017c2cf88.php",
+            "config": "shells/php/90208b0d9682a2e0adf2a5c017c2cf88.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/5aa6b1fb87480c5700151b72e9a72b7a.php",
+            "target": "shells/php/5aa6b1fb87480c5700151b72e9a72b7a.php",
+            "config": "shells/php/5aa6b1fb87480c5700151b72e9a72b7a.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/d3c731248f191110d5619fc7e0379884.php",
+            "target": "shells/php/cad9ae261d282e0b1626eeba282d3ae4.php",
+            "config": "shells/php/cad9ae261d282e0b1626eeba282d3ae4.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/a383c064264cad3e147814cf4fe388ba.php",
+            "target": "shells/php/704627682042aa2b6f521dce71d8cc3e.php",
+            "config": "shells/php/704627682042aa2b6f521dce71d8cc3e.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/f8a6d5306fb37414c5c772315a27832f.php",
+            "target": "shells/php/f8a6d5306fb37414c5c772315a27832f.php",
+            "config": "shells/php/f8a6d5306fb37414c5c772315a27832f.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/063693c0390e6ef26ee08b493676f900.php",
+            "target": "shells/php/3bc9b7f45a8556625630eda86c44eea2.php",
+            "config": "shells/php/3bc9b7f45a8556625630eda86c44eea2.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/a25dfdc054b9c3fa2a2ee952d6543ee9.php",
+            "target": "shells/php/a25dfdc054b9c3fa2a2ee952d6543ee9.php",
+            "config": "shells/php/a25dfdc054b9c3fa2a2ee952d6543ee9.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/405e6d610020afe5ac42f35c99ce5414.php",
+            "target": "shells/php/405e6d610020afe5ac42f35c99ce5414.php",
+            "config": "shells/php/405e6d610020afe5ac42f35c99ce5414.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/0d6e057ea81af40ef6d54124f9aa6d25.php",
+            "target": "shells/php/1be18354cc48be5faafb724b1d2e8ec0.php",
+            "config": "shells/php/1be18354cc48be5faafb724b1d2e8ec0.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/272dde9a4a7265d6c139287560328cd5.php",
+            "target": "shells/php/272dde9a4a7265d6c139287560328cd5.php",
+            "config": "shells/php/272dde9a4a7265d6c139287560328cd5.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/0723362e176328b2e98e99ac6cc17884.php",
+            "target": "shells/php/0723362e176328b2e98e99ac6cc17884.php",
+            "config": "shells/php/0723362e176328b2e98e99ac6cc17884.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/59d9dd1c7efa58dbec5a72a365022481.php",
+            "target": "shells/php/59d9dd1c7efa58dbec5a72a365022481.php",
+            "config": "shells/php/59d9dd1c7efa58dbec5a72a365022481.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/e0efded8e3a23a28db2540d24ebaed3c.php",
+            "target": "shells/php/e0efded8e3a23a28db2540d24ebaed3c.php",
+            "config": "shells/php/e0efded8e3a23a28db2540d24ebaed3c.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/89b956c609faabe7751433a0525659a7.php",
+            "target": "shells/php/89b956c609faabe7751433a0525659a7.php",
+            "config": "shells/php/89b956c609faabe7751433a0525659a7.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/04df72681aebca1dca3365f1010ce3ea.php",
+            "target": "shells/php/04df72681aebca1dca3365f1010ce3ea.php",
+            "config": "shells/php/04df72681aebca1dca3365f1010ce3ea.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/eaf08aeaa0db5b7ee2002780a65dc83d.php",
+            "target": "shells/php/eaf08aeaa0db5b7ee2002780a65dc83d.php",
+            "config": "shells/php/eaf08aeaa0db5b7ee2002780a65dc83d.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/dbb53840121787818a3f563589d2f814.php",
+            "target": "shells/php/dbb53840121787818a3f563589d2f814.php",
+            "config": "shells/php/dbb53840121787818a3f563589d2f814.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/7737cbfe0d38c66d20d0afdc71bddc0c.php",
+            "target": "shells/php/2998de8b29315b51638a25eb0a1dc318.php",
+            "config": "shells/php/2998de8b29315b51638a25eb0a1dc318.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/0f2ce2e5c797c390ab939abe1c0190ad.php",
+            "target": "shells/php/0f2ce2e5c797c390ab939abe1c0190ad.php",
+            "config": "shells/php/0f2ce2e5c797c390ab939abe1c0190ad.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/fd872f84b6ac9c4d1b7423d14dfc3a6a.php",
+            "target": "shells/php/0f9083ba4844e22f011c37e5d6533ad1.php",
+            "config": "shells/php/0f9083ba4844e22f011c37e5d6533ad1.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/bc89f18c6d6c9f94203becc2e150b984.php",
+            "target": "shells/php/1da385d0d74c507a51c99a97eec799b5.php",
+            "config": "shells/php/1da385d0d74c507a51c99a97eec799b5.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/43eb84d5e3ddfc935701cde1740a0908.php",
+            "target": "shells/php/43eb84d5e3ddfc935701cde1740a0908.php",
+            "config": "shells/php/43eb84d5e3ddfc935701cde1740a0908.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/e78f48f298f3869961be2228df3764f7.php",
             "target": "shells/php/e78f48f298f3869961be2228df3764f7.php",
             "config": "shells/php/e78f48f298f3869961be2228df3764f7.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/270427092ad21cdca3341fd59f441179.php",
+            "target": "shells/php/270427092ad21cdca3341fd59f441179.php",
+            "config": "shells/php/270427092ad21cdca3341fd59f441179.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/1a95f0163b6dea771da1694de13a3d8d.php",
+            "target": "shells/php/1a95f0163b6dea771da1694de13a3d8d.php",
+            "config": "shells/php/1a95f0163b6dea771da1694de13a3d8d.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/16767a4ec7e85cdb37acaf7da0903c96.php",
+            "target": "shells/php/16767a4ec7e85cdb37acaf7da0903c96.php",
+            "config": "shells/php/16767a4ec7e85cdb37acaf7da0903c96.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/615b24003e682271ec6c93e4e5814535.php",
+            "target": "shells/php/7d3348bd1d3f0afc769732df853543c6.php",
+            "config": "shells/php/7d3348bd1d3f0afc769732df853543c6.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/3b725d119099306a4ccb8b042da5bbe2.php",
+            "target": "shells/php/3b725d119099306a4ccb8b042da5bbe2.php",
+            "config": "shells/php/3b725d119099306a4ccb8b042da5bbe2.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/b14735a16a722e40606e5452eeac52f2.php",
+            "target": "shells/php/b14735a16a722e40606e5452eeac52f2.php",
+            "config": "shells/php/b14735a16a722e40606e5452eeac52f2.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/7f7cb1b9410a1259d2ee09d031a5ae39.php",
+            "target": "shells/php/7f7cb1b9410a1259d2ee09d031a5ae39.php",
+            "config": "shells/php/7f7cb1b9410a1259d2ee09d031a5ae39.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/5de95bf720b87f138b99e58da9782cbe.php",
+            "target": "shells/php/5de95bf720b87f138b99e58da9782cbe.php",
+            "config": "shells/php/5de95bf720b87f138b99e58da9782cbe.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/4f71ce0cf112207fc7730784c614ca13.php",
+            "target": "shells/php/4f71ce0cf112207fc7730784c614ca13.php",
+            "config": "shells/php/4f71ce0cf112207fc7730784c614ca13.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/aeee3bae226ad57baf4be8745c3f6094.php",
+            "target": "shells/php/aeee3bae226ad57baf4be8745c3f6094.php",
+            "config": "shells/php/aeee3bae226ad57baf4be8745c3f6094.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/f2f706c2a5cccf55f63a743a49b28934.php",
+            "target": "shells/php/8aedaaddf0f5363aa31b2fb68d6eba27.php",
+            "config": "shells/php/8aedaaddf0f5363aa31b2fb68d6eba27.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/1110436076f02ce19e5be91a491db8a9.php",
+            "target": "shells/php/c64abc8552f85a8b381f6bfce62b32c4.php",
+            "config": "shells/php/c64abc8552f85a8b381f6bfce62b32c4.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/a855d2bc4bd66c832be8f333ea29841a.php",
+            "target": "shells/php/a855d2bc4bd66c832be8f333ea29841a.php",
+            "config": "shells/php/a855d2bc4bd66c832be8f333ea29841a.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/94c2dfcff592120c5832f7b2d9e45956.php",
+            "target": "shells/jsp/94c2dfcff592120c5832f7b2d9e45956.jsp",
+            "config": "shells/jsp/94c2dfcff592120c5832f7b2d9e45956.json",
+            "working": true
+        },
+        {
+            "source": "/data/webshell-gang/cleaned_dataset/webshell/67883f867b522e1078b6214f7d80fe6c.php",
+            "target": "shells/php/67883f867b522e1078b6214f7d80fe6c.php",
+            "config": "shells/php/67883f867b522e1078b6214f7d80fe6c.json",
             "working": true
         }
     ],
     "failed_files": [
-        "uncheck-shells/b374k-2.7.source.php",
-        "uncheck-shells/phpspy_2005_full.php",
-        "uncheck-shells/2013加密.php",
-        "uncheck-shells/20220213_03.php",
-        "uncheck-shells/pas_fork.php",
-        "uncheck-shells/2020.08.20.16.php",
-        "uncheck-shells/other-decode.php",
-        "uncheck-shells/b37.php",
-        "uncheck-shells/metaslsoft.php",
-        "uncheck-shells/arabicspy.php",
-        "uncheck-shells/cvwfzthj.php",
-        "uncheck-shells/ctt_sh.php",
-        "uncheck-shells/wso-4.2.5.php",
-        "uncheck-shells/c99madshell.php",
-        "uncheck-shells/config.php",
-        "uncheck-shells/G5.php",
-        "uncheck-shells/20220213_05.php",
-        "uncheck-shells/How To Exploit PHP Remotely To Bypass Filters & WAF Rules.md",
-        "uncheck-shells/b374k-3.2.2.php",
-        "uncheck-shells/NetworkFileManagerPHP.php",
-        "uncheck-shells/PHPJackal.php",
-        "uncheck-shells/write.php",
-        "uncheck-shells/xslt.php",
-        "uncheck-shells/2022-09-09-05.php",
-        "uncheck-shells/calc.php",
-        "uncheck-shells/guo.php",
-        "uncheck-shells/bat_b4tm4n.php",
-        "uncheck-shells/c99shell.php",
-        "uncheck-shells/ucen.php",
-        "uncheck-shells/m7lrv01.php",
-        "uncheck-shells/aioshell.php",
-        "uncheck-shells/2020.08.20.19.php",
-        "uncheck-shells/c99.php",
-        "uncheck-shells/ass.php",
-        "uncheck-shells/googlebot.php",
-        "uncheck-shells/wso-ng.php",
-        "uncheck-shells/upload.py",
-        "uncheck-shells/php7.1_bypass.php",
-        "uncheck-shells/Shu1337.php",
-        "uncheck-shells/README.txt",
-        "uncheck-shells/1n73ction.php",
-        "uncheck-shells/webshell免杀-提升兼容性.html",
-        "uncheck-shells/wso-bypass.php",
-        "uncheck-shells/一句话2015-06-10-01.php",
-        "uncheck-shells/20220213.php",
-        "uncheck-shells/tk_dencode_1.php",
-        "uncheck-shells/w_2016-05-25.php",
-        "uncheck-shells/itsecteam_shell.php",
-        "uncheck-shells/b374k-2.3.php"
+        "/data/webshell-gang/cleaned_dataset/webshell/0ea3a2f392cd600a20a08bfedb47cf39.php",
+        "/data/webshell-gang/cleaned_dataset/webshell/978e677bf7395788f3da9781c938ed25.php",
+        "/data/webshell-gang/cleaned_dataset/webshell/9989dfb9da2251a445aa4934356751c2.php",
+        "/data/webshell-gang/cleaned_dataset/webshell/0105d05660329704bdb0ecd3fd3a473b.php",
+        "/data/webshell-gang/cleaned_dataset/webshell/e842dd927885ec6cb4e59c8d21b40791.php",
+        "/data/webshell-gang/cleaned_dataset/webshell/9728c5acf4045701c3fe81e52266443f.php",
+        "/data/webshell-gang/cleaned_dataset/webshell/1fd67cdba1f09c929c1af7a08e56f973.php",
+        "/data/webshell-gang/cleaned_dataset/webshell/d1198009bd7b20b88d4c1434b994986f.php",
+        "/data/webshell-gang/cleaned_dataset/webshell/62dd47979683875bc3ec713c8a05933e.php"
     ],
     "test_results": {
         "success": [
-            "uncheck-shells/biantai.php"
+            "/data/webshell-gang/cleaned_dataset/webshell/752081881c3848cae8e395cd0d4422ca.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/e57cd978725a081e84931961969ed528.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/297c2c4c246ae48b7564e60026ae2758.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/360e397dc4d4cb5b06725d873dc3f886.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/5aa6b1fb87480c5700151b72e9a72b7a.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/d3c731248f191110d5619fc7e0379884.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/a383c064264cad3e147814cf4fe388ba.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/f8a6d5306fb37414c5c772315a27832f.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/063693c0390e6ef26ee08b493676f900.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/a25dfdc054b9c3fa2a2ee952d6543ee9.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/405e6d610020afe5ac42f35c99ce5414.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/0d6e057ea81af40ef6d54124f9aa6d25.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/272dde9a4a7265d6c139287560328cd5.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/0723362e176328b2e98e99ac6cc17884.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/59d9dd1c7efa58dbec5a72a365022481.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/e0efded8e3a23a28db2540d24ebaed3c.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/89b956c609faabe7751433a0525659a7.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/04df72681aebca1dca3365f1010ce3ea.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/eaf08aeaa0db5b7ee2002780a65dc83d.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/dbb53840121787818a3f563589d2f814.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/7737cbfe0d38c66d20d0afdc71bddc0c.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/0f2ce2e5c797c390ab939abe1c0190ad.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/fd872f84b6ac9c4d1b7423d14dfc3a6a.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/bc89f18c6d6c9f94203becc2e150b984.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/43eb84d5e3ddfc935701cde1740a0908.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/e78f48f298f3869961be2228df3764f7.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/270427092ad21cdca3341fd59f441179.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/1a95f0163b6dea771da1694de13a3d8d.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/16767a4ec7e85cdb37acaf7da0903c96.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/615b24003e682271ec6c93e4e5814535.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/3b725d119099306a4ccb8b042da5bbe2.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/b14735a16a722e40606e5452eeac52f2.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/7f7cb1b9410a1259d2ee09d031a5ae39.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/5de95bf720b87f138b99e58da9782cbe.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/4f71ce0cf112207fc7730784c614ca13.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/aeee3bae226ad57baf4be8745c3f6094.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/f2f706c2a5cccf55f63a743a49b28934.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/1110436076f02ce19e5be91a491db8a9.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/a855d2bc4bd66c832be8f333ea29841a.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/94c2dfcff592120c5832f7b2d9e45956.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/67883f867b522e1078b6214f7d80fe6c.php"
         ],
-        "failed": []
+        "failed": [
+            "/data/webshell-gang/cleaned_dataset/webshell/978e677bf7395788f3da9781c938ed25.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/9989dfb9da2251a445aa4934356751c2.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/0105d05660329704bdb0ecd3fd3a473b.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/e842dd927885ec6cb4e59c8d21b40791.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/9728c5acf4045701c3fe81e52266443f.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/1fd67cdba1f09c929c1af7a08e56f973.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/d1198009bd7b20b88d4c1434b994986f.php",
+            "/data/webshell-gang/cleaned_dataset/webshell/62dd47979683875bc3ec713c8a05933e.php"
+        ]
     }
 }

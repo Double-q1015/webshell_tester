@@ -1,0 +1,25 @@
+{
+    "filename": "94c2dfcff592120c5832f7b2d9e45956.php",
+    "type": "jsp",
+    "size": 49345,
+    "md5": "94c2dfcff592120c5832f7b2d9e45956",
+    "connection": {},
+    "features": {
+        "file_upload": true,
+        "command_exec": false,
+        "database_ops": false,
+        "eval_usage": false,
+        "obfuscated": true
+    },
+    "detection": {
+        "antivirus_score": 0,
+        "yara_rules": []
+    },
+    "metadata": {
+        "discovered_date": "2025-04-25",
+        "last_tested": "2025-04-25",
+        "working_status": true,
+        "original_filename": "94c2dfcff592120c5832f7b2d9e45956.php",
+        "source_path": "/data/webshell-gang/cleaned_dataset/webshell/94c2dfcff592120c5832f7b2d9e45956.php"
+    }
+}

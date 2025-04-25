@@ -1,15 +1,9 @@
 {
-    "filename": "gzismexv.php",
+    "filename": "bc89f18c6d6c9f94203becc2e150b984.php",
     "type": "php",
     "size": 85801,
     "md5": "1da385d0d74c507a51c99a97eec799b5",
-    "connection": {
-        "method": "POST",
-        "password": "gnkuhll",
-        "param_name": "cmd",
-        "encoding": "base64",
-        "test_command": "echo 'test';"
-    },
+    "connection": {},
     "features": {
         "file_upload": false,
         "command_exec": false,
@@ -25,7 +19,7 @@
         "discovered_date": "2025-04-25",
         "last_tested": "2025-04-25",
         "working_status": true,
-        "original_filename": "gzismexv.php",
-        "source_path": "uncheck-shells/gzismexv.php"
+        "original_filename": "bc89f18c6d6c9f94203becc2e150b984.php",
+        "source_path": "/data/webshell-gang/cleaned_dataset/webshell/bc89f18c6d6c9f94203becc2e150b984.php"
     }
 }

@@ -23,13 +23,16 @@ from core.executor import (
 )
 
 class WebshellTester:
-    def __init__(self):
+    def __init__(self, keep_container: bool = False):
         self.client = docker.from_env()
         self.test_commands = ["echo 'test';", "id;", "pwd;"]  # 基本测试命令
         self.network_name = 'webshell_test'
         self.logger = logger
+        self.last_commands = []  # 记录最后一次测试的命令
+        self.last_responses = []  # 记录最后一次测试的响应
         self._ensure_network()
         self.logger.debug("WebshellTester初始化完成")
+        self.keep_container = keep_container
 
     def _ensure_network(self):
         """确保Docker网络存在"""
@@ -145,6 +148,9 @@ class WebshellTester:
         """
         container = None
         temp_dir = None
+        self.last_commands = []  # 清空上次的记录
+        self.last_responses = []  # 清空上次的记录
+        
         try:
             # 创建临时目录
             temp_dir = tempfile.mkdtemp()
@@ -184,6 +190,12 @@ class WebshellTester:
                 executor
             )
             
+            # 记录测试命令和响应
+            if 'requests' in test_results:
+                self.last_commands = test_results['requests']
+            if 'responses' in test_results:
+                self.last_responses = test_results['responses']
+            
             if not test_results['success']:
                 self.logger.error(f"连接测试失败: {test_results.get('error', '未知错误')}")
                 if 'details' in test_results:
@@ -199,14 +211,17 @@ class WebshellTester:
             return False
             
         finally:
-            # 清理环境
-            if container:
-                self.cleanup_env(container)
-            
-            # 删除临时文件
-            if temp_dir and os.path.exists(temp_dir):
-                shutil.rmtree(temp_dir)
-                self.logger.debug("清理临时文件完成")
+            if not self.keep_container:
+                # 清理环境
+                if container:
+                    self.cleanup_env(container)
+                
+                    # 删除临时文件
+                    if temp_dir and os.path.exists(temp_dir):
+                        shutil.rmtree(temp_dir)
+                        self.logger.debug("清理临时文件完成")
+            else:
+                self.logger.info("容器保持运行. 请手动清理.")
 
     def test_connection_sync(self, webshell_config: WebshellConfig) -> bool:
         """同步版本的测试方法（用于兼容现有代码）"""

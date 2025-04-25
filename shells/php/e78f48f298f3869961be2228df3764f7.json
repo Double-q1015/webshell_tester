@@ -1,5 +1,5 @@
 {
-    "filename": "biantai.php",
+    "filename": "e78f48f298f3869961be2228df3764f7.php",
     "type": "php",
     "size": 1883,
     "md5": "e78f48f298f3869961be2228df3764f7",
@@ -19,7 +19,7 @@
         "discovered_date": "2025-04-25",
         "last_tested": "2025-04-25",
         "working_status": true,
-        "original_filename": "biantai.php",
-        "source_path": "uncheck-shells/biantai.php"
+        "original_filename": "e78f48f298f3869961be2228df3764f7.php",
+        "source_path": "/data/webshell-gang/cleaned_dataset/webshell/e78f48f298f3869961be2228df3764f7.php"
     }
 }
