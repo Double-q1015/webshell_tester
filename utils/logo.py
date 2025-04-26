@@ -19,7 +19,6 @@ def logo():
     [*] Author: Doinb1517
     [*] Email: doinb1517@gmail.com
     [*] Github: https://github.com/Doinb1517/WebShell-Tester
-    [*] 
     """)
 
 if __name__ == "__main__":

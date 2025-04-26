@@ -4,14 +4,13 @@ from typing import List, Dict, Any
 
 @dataclass
 class ConnectionInfo:
-    """WebShell连接信息"""
+    """WebShell connection information"""
     def __init__(
         self,
         method: str = "POST",
         password: str = None,
         param_name: str = None,
         encoding: str = None,
-        special_auth: Dict = None,
         preg_replace: bool = False,
         use_raw_post: bool = False,
         php_version: str = None,
@@ -23,19 +22,26 @@ class ConnectionInfo:
         self.password = password
         self.param_name = param_name
         self.encoding = encoding
-        self.special_auth = special_auth
         self.preg_replace = preg_replace
         self.use_raw_post = use_raw_post
         self.php_version = php_version
         self.obfuscated = obfuscated
-        self.obfuscated_params = obfuscated_params or {
-            'func_name': 'PBbs',
-            'decode_func': 'UpB_',
-            'param1': 'PWWk',
-            'param2': 'xfrwA',
-            'cmd_param': 'Epd'
-        }
+        self.obfuscated_params = obfuscated_params
         self.test_command = test_command
+
+    def to_dict(self):
+        return {
+            'method': self.method,
+            'password': self.password,
+            'param_name': self.param_name,
+            'encoding': self.encoding,
+            'preg_replace': self.preg_replace,
+            'use_raw_post': self.use_raw_post,
+            'php_version': self.php_version,
+            'obfuscated': self.obfuscated,
+            'obfuscated_params': self.obfuscated_params,
+            'test_command': self.test_command
+        }
 
 @dataclass
 class Features:

@@ -1,10 +1,10 @@
 FROM php:7.3-apache
 
-# 配置 DNS
+# configure DNS
 RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf \
     && echo "nameserver 8.8.4.4" >> /etc/resolv.conf
 
-# 安装必要工具
+# install necessary tools
 RUN apt-get update && apt-get install -y \
     curl \
     libxml2-dev \
@@ -14,12 +14,12 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# 安装 PHP 扩展
+# install PHP extensions
 RUN docker-php-ext-install pdo pdo_mysql mysqli zip \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install gd
 
-# 配置 Apache
+# configure Apache
 RUN a2enmod rewrite \
     && echo "ServerName localhost" >> /etc/apache2/apache2.conf \
     && echo '<Directory /var/www/html>\n\
@@ -29,19 +29,19 @@ RUN a2enmod rewrite \
 </Directory>' > /etc/apache2/conf-available/custom.conf \
     && a2enconf custom
 
-# 设置工作目录
+# set working directory
 WORKDIR /var/www/html
 
-# 设置目录权限
+# set directory permissions
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-# 健康检查
+# health check
 HEALTHCHECK --interval=5s --timeout=3s --retries=3 \
     CMD curl -f http://localhost/health.php || exit 1
 
-# 暴露端口
+# expose port
 EXPOSE 80
 
-# 启动 Apache
+# start Apache
 CMD ["apache2-foreground"] 

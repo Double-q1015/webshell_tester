@@ -12,23 +12,23 @@ from utils.models import ConnectionInfo
 from .config import config
 
 class BaseExecutor:
-    """基础执行器类"""
+    """BaseExecutor class"""
     def __init__(self, timeout: int = 10):
         self.timeout = timeout
         self.logger = logger
     
     def _process_output(self, output: str) -> str:
-        """处理命令输出"""
+        """Process command output"""
         if not output:
             return ""
         return output.strip()
     
     def execute_command(self, url: str, command: str, connection_info: ConnectionInfo) -> Tuple[bool, str]:
         """
-        执行WebShell命令
+        Execute WebShell command
         """
         try:
-            # 准备请求头和参数
+            # Prepare request headers and parameters
             headers = {}
             data = {}
             

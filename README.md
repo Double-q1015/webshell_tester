@@ -7,18 +7,18 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Active-brightgreen.svg)]()
 
-A comprehensive automated testing framework for WebShell analysis and validation.
+A comprehensive WebShell automation testing framework for analyzing and validating WebShells.
 
-## Overview
+## Project Overview
 
-WebShell Tester is a robust testing framework designed for security researchers and developers to automate the testing and validation of WebShells across various web environments. It provides a standardized approach to test WebShell functionality, detectability, and behavior in different web server configurations.
+WebShell Tester is a powerful testing framework designed for security researchers and developers to automate testing and validation of WebShells in various web environments. It provides a standardized approach to test WebShell functionality, detectability, and behavior across different web server configurations. It makes it easy to deploy webshells to specified environments for learning and testing purposes.
 
-## Features
+## Key Features
 
 ### Environment Management
 - 🐳 Docker-based environment isolation
 - 🔄 Multiple web server configurations
-- ⚡ Quick environment deployment and teardown
+- ⚡ Quick environment deployment and cleanup
 - 🔒 Secure container networking
 
 ### Testing Capabilities
@@ -37,21 +37,21 @@ WebShell Tester is a robust testing framework designed for security researchers 
 
 ## Quick Start
 
-### Prerequisites
+### System Requirements
 - Python 3.10+
 - Docker 20.10+
 - pip
 
-### Installation
+### Installation Steps
 ```bash
-# Clone the repository
+# Clone repository
 git clone https://github.com/yourusername/webshell_tester.git
 cd webshell_tester
 
-# create conda env
+# Create conda environment
 conda create --name webshell_tester python=3.10
 
-# 
+# Activate conda environment
 conda activate webshell_tester 
 
 # Install dependencies
@@ -59,54 +59,71 @@ pip install -r requirements.txt
 ```
 
 ### Basic Usage
+1 prebuild_images script usage
 ```bash
 # List available environments
 python tools/prebuild_images.py list
 
-# Build a specific environment
+# Build specific environment
 python tools/prebuild_images.py build --env php7.4_apache
+```
+
+2 Main program usage
+```bash
+# Prebuild environment
+python main.py prebuild --env php7.4_apache
 
 # Run tests
-python main.py --env php7.4_apache --shell test1.php
+python main.py test --env php7.4_apache --shell test1.php
+
+# Deploy WebShell
+python main.py deploy --env php7.4_apache --shell test1.php
+
+# View help
+python main.py --help
+```
+
+3 Command line parameters
+```bash
+usage: main.py [-h] {prebuild,test,deploy} ...
+
+WebShell automation test tool
+
+positional arguments:
+  {prebuild,test,deploy}
+                        Main commands
+    prebuild           Prebuild Docker environment
+    test               Run WebShell tests
+    deploy             Deploy WebShell to environment
+
+options:
+  -h, --help           Show help message
+
+test command parameters:
+  --env ENV            Specify test environment
+  --shell SHELL        Specify WebShell file
 ```
 
 ## Project Structure
 ```
 webshell_tester/
-├── docker_templates/    # Docker environment templates
-├── shells/             # WebShell samples
-├── core/               # Core functionality
-├── tools/              # Utility scripts
-├── utils/              # Helper functions
-├── tests/              # Test cases
-└── main.py            # Main entry point
+├── docker_templates/    # Docker environment templates and configurations
+├── shells/             # WebShell sample collection and templates
+├── core/               # Core functionality and business logic
+├── tools/              # Utility scripts and helper tools
+├── utils/              # Common utility functions and libraries
+├── tests/              # Test cases and test data
+└── main.py            # Main program entry point
 ```
 
-## Advanced Features
-
-### Environment Configuration
-```yaml
-environment:
-  name: php7.4_apache
-  server: apache
-  version: 2.4
-  php_version: 7.4
-  ports:
-    - 8080:80
-```
-
-### Test Case Management
-```yaml
-testcase:
-  name: "PHP WebShell Test"
-  shell:
-    type: "php"
-    file: "test1.php"
-  commands:
-    - "whoami"
-    - "pwd"
-    - "ls -la"
-```
+### Directory Description
+- `docker_templates/`: Contains Dockerfile templates and environment configurations for different web server setups
+- `shells/`: Stores various WebShell samples categorized by language and type
+- `core/`: Implements the main business logic including environment management and testing framework
+- `tools/`: Contains utility scripts for environment setup, testing, and analysis
+- `utils/`: Provides common utility functions used across the project
+- `tests/`: Includes test cases, test data, and test configurations
+- `main.py`: The entry point of the application, handling command-line interface and main workflow
 
 ## Detection Techniques
 
@@ -117,40 +134,40 @@ Some WebShell detection techniques:
 |-----------|-------------|---------|
 | Sandbox | Dynamic analysis in isolated environment | Baidu Webdir |
 | RASP | Runtime Application Self-Protection | Baidu OpenRASP |
-| Static Analysis - Regex | Pattern matching based detection | Shell-Detector |
-| Static Analysis - Statistical | Statistical analysis of code features | ML-based detectors |
-| Static Analysis - AST | Abstract Syntax Tree analysis | PHP-Parser |
+| Static Analysis-Regex | Pattern matching based detection | Shell-Detector |
+| Static Analysis-Statistics | Statistical analysis of code features | ML-based detectors |
+| Static Analysis-AST | Abstract Syntax Tree analysis | PHP-Parser |
 | Machine Learning | AI-based detection | Various ML models |
 
 ### Related Projects
-Here are some notable open-source projects in the WebShell detection field:
+Here are some important open-source projects in WebShell detection:
 
 | Project | Description | Status |
 |---------|-------------|--------|
 | [CloudWalker](https://github.com/chaitin/cloudwalker) | Comprehensive detection solution | Active |
-| [PHP-Malware-Finder](https://github.com/jvoisin/php-malware-finder) | YARA rules for PHP malware detection | Active |
+| [PHP-Malware-Finder](https://github.com/jvoisin/php-malware-finder) | YARA rules for PHP malware | Active |
 | [MLCheckWebshell](https://github.com/hi-WenR0/MLCheckWebshell) | Naive Bayes based detection | Active |
 | [WebShell-Detect-By-ML](https://github.com/lcatro/WebShell-Detect-By-Machine-Learning) | Custom Bayesian algorithm implementation | Active |
 | [Shell-Detector](https://github.com/emposha/Shell-Detector) | Regex-based detection | Active |
 | [PHP-Parser](https://github.com/nikic/PHP-Parser) | AST-based analysis | Active |
 
 ### Theoretical Resources
-For those interested in the theoretical aspects of WebShell detection:
+For readers interested in WebShell detection theory:
 
-- [AST-based Webshell Detection](https://xz.aliyun.com/t/5848)
-- [PHP Webshell Attack Techniques](https://mp.weixin.qq.com/s/FgzIm-IK02rjEf3JvxOxrw)
-- [Webshell Detection Evolution](https://zhuanlan.zhihu.com/p/135268144)
-- [Taint Analysis in Webshell Detection](https://zhuanlan.zhihu.com/p/197553954)
-- [Best Practices in Malicious Script Detection](http://yundunpr.oss-cn-hangzhou.aliyuncs.com/2020/xcon2020.pdf)
+- [AST-based WebShell Detection](https://xz.aliyun.com/t/5848)
+- [PHP WebShell Attack Techniques](https://mp.weixin.qq.com/s/FgzIm-IK02rjEf3JvxOxrw)
+- [WebShell Detection Capability Evolution Notes](https://zhuanlan.zhihu.com/p/135268144)
+- [Application of Taint Analysis in WebShell Detection](https://zhuanlan.zhihu.com/p/197553954)
+- [Best Practices for Malicious Script Detection in Cloud Security](http://yundunpr.oss-cn-hangzhou.aliyuncs.com/2020/xcon2020.pdf)
 
 ## Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+Welcome to contribute! Please check our [Contributing Guide](CONTRIBUTING.md) for details.
 
-## Security
+## Security Notes
 
 - All containers run in isolated Docker networks
-- WebShell execution is restricted to specific commands
+- WebShell execution is limited to specific command ranges
 - Regular security audits and updates
 
 ## License
@@ -163,26 +180,26 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - Python Security Community
 - Open Source Contributors
 
-## Roadmap
+## Development Roadmap
 
 ### Environment Support
 - [ ] High Priority:
   - PHP 7.4 + Apache/Nginx (Most stable and widely used)
 - [ ] Medium Priority:
   - PHP 8.1 + Apache/Nginx (Modern applications)
-- [ ] Lower Priority:
+- [ ] Low Priority:
   - PHP 7.2/7.3 + Apache/Nginx (Legacy systems)
   - PHP 5.6 + Apache (Very old systems)
 
 ### Feature Enhancements
-- [ ] Enhanced Reporting System
-- [ ] Web Management Interface
-- [ ] CI/CD Integration
-- [ ] Performance Optimization
+- [ ] Enhanced reporting system
+- [ ] Web management interface
+- [ ] CI/CD integration
+- [ ] Performance optimization
 
-## Support
+## Technical Support
 
-For support, please open an issue in the GitHub repository or contact the maintainers.
+For technical support, please submit an issue in the GitHub repository or contact the maintainers.
 
 ## Tags
 

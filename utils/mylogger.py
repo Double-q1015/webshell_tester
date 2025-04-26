@@ -2,7 +2,7 @@ from loguru import logger
 from pathlib import Path
 
 def setup_logger(log_dir: str = "logs", level: str = "DEBUG") -> None:
-    """配置日志"""
+    """Setup logger"""
     Path(log_dir).mkdir(parents=True, exist_ok=True)
 
     logger.add(
@@ -16,4 +16,4 @@ def setup_logger(log_dir: str = "logs", level: str = "DEBUG") -> None:
         diagnose=True
     )
 
-    logger.debug("日志系统初始化完成")
+    logger.debug("Logger initialized")

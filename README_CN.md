@@ -11,7 +11,7 @@
 
 ## 项目概述
 
-WebShell 测试工具是一个强大的测试框架，专为安全研究人员和开发人员设计，用于自动化测试和验证各种 Web 环境中的 WebShell。它提供了一种标准化的方法来测试 WebShell 的功能、可检测性和在不同 Web 服务器配置中的行为。
+WebShell 测试工具是一个强大的测试框架，专为安全研究人员和开发人员设计，用于自动化测试和验证各种 Web 环境中的 WebShell。它提供了一种标准化的方法来测试 WebShell 的功能、可检测性和在不同 Web 服务器配置中的行为。可以很方便的将webshell部署到指定环境中方便学习和测试。
 
 ## 主要功能
 
@@ -59,15 +59,49 @@ pip install -r requirements.txt
 ```
 
 ### 基本用法
+1 prebuild_images 脚本用法
 ```bash
 # 列出可用环境
 python tools/prebuild_images.py list
 
 # 构建特定环境
 python tools/prebuild_images.py build --env php7.4_apache
+```
+
+2 主程序用法
+```bash
+# 预构建环境
+python main.py prebuild --env php7.4_apache
 
 # 运行测试
-python main.py --env php7.4_apache --shell test1.php
+python main.py test --env php7.4_apache --shell test1.php
+
+# 部署WebShell
+python main.py deploy --env php7.4_apache --shell test1.php
+
+# 查看帮助
+python main.py --help
+```
+
+3 命令行参数说明
+```bash
+usage: main.py [-h] {prebuild,test,deploy} ...
+
+WebShell自动化测试工具
+
+位置参数:
+  {prebuild,test,deploy}
+                       主要命令
+    prebuild           预构建Docker环境
+    test               运行WebShell测试
+    deploy             部署WebShell到环境
+
+选项:
+  -h, --help           显示帮助信息
+
+测试命令参数:
+  --env ENV            指定测试环境
+  --shell SHELL        指定WebShell文件
 ```
 
 ## 项目结构
@@ -96,18 +130,6 @@ environment:
     - 8080:80
 ```
 
-### 测试用例管理
-```yaml
-testcase:
-  name: "PHP WebShell 测试"
-  shell:
-    type: "php"
-    file: "test1.php"
-  commands:
-    - "whoami"
-    - "pwd"
-    - "ls -la"
-```
 
 ## 检测技术
 

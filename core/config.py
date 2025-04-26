@@ -14,7 +14,7 @@ class Config:
         self.shells_dir = self.base_dir / "shells"
         
         # Docker配置
-        self.docker_network = "webshell_test_network"
+        self.docker_network = "webshell_test"
         self.docker_timeout = int(os.getenv("DOCKER_TIMEOUT", "300"))
         
         # 执行配置

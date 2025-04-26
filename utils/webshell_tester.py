@@ -1,18 +1,11 @@
 #!/usr/bin/env python3
 import os
 import sys
-import time
 import docker
-import requests
-import tempfile
-import shutil
 from typing import Optional, Dict, Any, Tuple
 from loguru import logger
-import base64
-import urllib.parse
 import traceback
 import asyncio
-import aiohttp
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from utils.models import WebshellConfig, ConnectionInfo
@@ -21,162 +14,70 @@ from core.executor import (
     AssertConnector, ParameterConnector, test_webshell,
     BaseExecutor
 )
+from core.environment import EnvironmentManager
+from core.config import config
+from utils.webshell_analyzer import WebshellAnalyzer
 
 class WebshellTester:
-    def __init__(self):
+    def __init__(self, env_name: str = 'php7.4_apache', keep_container: bool = False):
         self.client = docker.from_env()
-        self.test_commands = ["echo 'test';", "id;", "pwd;"]  # 基本测试命令
-        self.network_name = 'webshell_test'
-        self.logger = logger
-        self._ensure_network()
-        self.logger.debug("WebshellTester初始化完成")
-
-    def _ensure_network(self):
-        """确保Docker网络存在"""
-        try:
-            # 检查网络是否存在
-            networks = self.client.networks.list(names=[self.network_name])
-            if not networks:
-                logger.debug(f"创建Docker网络: {self.network_name}")
-                self.client.networks.create(
-                    name=self.network_name,
-                    driver="bridge",
-                    check_duplicate=True
-                )
-            else:
-                logger.debug(f"使用现有Docker网络: {self.network_name}")
-        except Exception as e:
-            logger.error(f"设置Docker网络失败: {str(e)}")
-            logger.debug(traceback.format_exc())
+        self.test_commands = ["echo 'test';", "id;", "pwd;"]  # basic test commands
+        self.network_name = config.docker_network
+        logger.debug("WebshellTester initialized")
+        self.keep_container = keep_container
+        self.env_manager = EnvironmentManager(env_name=env_name, keep_container=keep_container)
+        self.analyzer = WebshellAnalyzer()
 
     def _create_connector(self, webshell_config: WebshellConfig) -> BaseConnector:
-        """根据webshell配置创建合适的连接器"""
-        # 检查是否是eval/assert类型
+        """Create appropriate connector based on webshell config"""
+        # check if it's eval/assert type
         if webshell_config.features.eval_usage:
             if 'assert' in webshell_config.filename.lower():
                 return AssertConnector(param_name=webshell_config.connection.password)
             else:
                 return EvalConnector(param_name=webshell_config.connection.password)
         
-        # 检查是否是JSP/ASPX
+        # check if it's JSP/ASPX
         if webshell_config.type in ['jsp', 'aspx']:
             return ParameterConnector(param_name=webshell_config.connection.param_name)
         
-        # 默认使用密码型连接器
+        # default use password connector
         return PasswordConnector(
             password=webshell_config.connection.password,
             param_name=webshell_config.connection.param_name
         )
 
-    def setup_test_env(self, temp_dir: str) -> Optional[docker.models.containers.Container]:
-        """设置测试环境"""
-        try:
-            self.logger.debug(f"开始设置测试环境，临时目录: {temp_dir}")
-            
-            # 设置目录权限
-            os.chmod(temp_dir, 0o755)
-            for root, dirs, files in os.walk(temp_dir):
-                for d in dirs:
-                    os.chmod(os.path.join(root, d), 0o755)
-                for f in files:
-                    os.chmod(os.path.join(root, f), 0o644)
-            
-            # 选择合适的Docker镜像
-            image = 'webshell_test_php7.4_apache:latest'  # 默认使用PHP环境
-            mount_point = '/var/www/html'
-            
-            # 启动容器
-            self.logger.debug(f"开始启动容器: {image}")
-            container = self.client.containers.run(
-                image,
-                detach=True,
-                network=self.network_name,  # 使用类变量
-                volumes={
-                    temp_dir: {
-                        'bind': mount_point,
-                        'mode': 'rw'
-                    }
-                },
-                remove=True
-            )
-            self.logger.debug(f"容器启动成功: {container.id}")
 
-            # 等待容器启动
-            self.logger.debug("等待容器初始化...")
-            time.sleep(2)
 
-            # 检查容器状态
-            container.reload()
-            self.logger.debug(f"容器状态: {container.status}")
-            
-            # 检查容器日志
-            logs = container.logs().decode('utf-8', errors='ignore')
-            self.logger.debug(f"容器日志:\n{logs}")
-
-            return container
-
-        except Exception as e:
-            self.logger.error(f"设置测试环境失败: {str(e)}")
-            self.logger.debug(traceback.format_exc())
-            return None
-
-    def _get_container_ip(self, container: docker.models.containers.Container) -> Optional[str]:
-        """获取容器IP地址"""
-        try:
-            container.reload()
-            return container.attrs['NetworkSettings']['Networks'][self.network_name]['IPAddress']
-        except Exception as e:
-            self.logger.error(f"获取容器IP失败: {str(e)}")
-            return None
-
-    def cleanup_env(self, container: docker.models.containers.Container):
-        """清理测试环境"""
-        try:
-            if container:
-                container.stop()
-                self.logger.debug(f"停止容器: {container.id}")
-        except Exception as e:
-            self.logger.error(f"清理测试环境失败: {str(e)}")
-            self.logger.debug(traceback.format_exc())
-
-    async def test_connection(self, webshell_file: str, connection_info: ConnectionInfo) -> bool:
+    async def test_connection(self, webshell_file: str) -> bool:
         """
-        测试WebShell连接
+        Test WebShell connection
         """
         container = None
-        temp_dir = None
         try:
-            # 创建临时目录
-            temp_dir = tempfile.mkdtemp()
-            self.logger.debug(f"创建临时目录: {temp_dir}")
-            
-            # 复制文件到临时目录
-            target_file = os.path.join(temp_dir, os.path.basename(webshell_file))
-            shutil.copy2(webshell_file, target_file)
-            self.logger.debug(f"复制文件到: {target_file}")
-            
-            # 设置测试环境
-            container = self.setup_test_env(temp_dir)
+            container = self.env_manager.setup_test_env(webshell_file)
             if not container:
-                self.logger.error("设置测试环境失败")
+                logger.error("Failed to setup test environment")
                 return False
             
-            # 等待容器就绪
+            # wait for container to be ready
             await asyncio.sleep(2)
             
-            # 获取容器IP
-            container_ip = self._get_container_ip(container)
+            # get container IP
+            container_ip = self.env_manager._get_container_ip(container)
             if not container_ip:
-                self.logger.error("获取容器IP失败")
+                logger.error("Failed to get container IP")
                 return False
             
-            self.logger.debug(f"容器IP: {container_ip}")
+            logger.debug(f"Container IP: {container_ip}")
             
-            # 构建WebShell URL
+            # build WebShell URL
             webshell_url = f"http://{container_ip}/{os.path.basename(webshell_file)}"
-            self.logger.debug(f"WebShell URL: {webshell_url}")
+            logger.debug(f"WebShell URL: {webshell_url}")
             
-            # 测试连接
+            connection_info = self.analyzer._analyze_connection(webshell_file)
+
+            # test connection
             executor = BaseExecutor()
             test_results = await test_webshell(
                 webshell_url,
@@ -185,29 +86,27 @@ class WebshellTester:
             )
             
             if not test_results['success']:
-                self.logger.error(f"连接测试失败: {test_results.get('error', '未知错误')}")
+                logger.error(f"Failed to test connection: {test_results.get('error', 'Unknown error')}")
                 if 'details' in test_results:
-                    self.logger.debug(f"错误详情: {test_results['details']}")
+                    logger.debug(f"Error details: {test_results['details']}")
                 return False
             
-            self.logger.info("连接测试成功")
+            logger.info("Connection test successful")
             return True
             
         except Exception as e:
-            self.logger.error(f"测试连接时发生错误: {str(e)}")
-            self.logger.debug(f"错误详情:\n{traceback.format_exc()}")
+            logger.error(f"Error occurred during connection test: {str(e)}")
+            logger.debug(f"Error details:\n{traceback.format_exc()}")
             return False
             
         finally:
-            # 清理环境
-            if container:
-                self.cleanup_env(container)
-            
-            # 删除临时文件
-            if temp_dir and os.path.exists(temp_dir):
-                shutil.rmtree(temp_dir)
-                self.logger.debug("清理临时文件完成")
+            if not self.keep_container:
+                # clean up environment
+                if container and not self.keep_container:
+                    self.env_manager.cleanup_env(container)
+            else:
+                logger.debug("Keep container, Please clean up the environment manually")
 
-    def test_connection_sync(self, webshell_config: WebshellConfig) -> bool:
-        """同步版本的测试方法（用于兼容现有代码）"""
-        return asyncio.run(self.test_connection(webshell_config.metadata.source_path, webshell_config.connection)) 
+    def test_connection_sync(self, webshell_file: str) -> bool:
+        """Synchronous version of test method (for compatibility with existing code)"""
+        return asyncio.run(self.test_connection(webshell_file)) 

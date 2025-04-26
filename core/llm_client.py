@@ -21,7 +21,7 @@ class LLMClient:
             
             self.qwen = Generation
         else:
-            raise ValueError(f"不支持的 LLM 提供商: {self.provider}")
+            raise ValueError(f"Unsupported LLM provider: {self.provider}")
 
     def chat(self, messages: list[dict[str, str]], model: str = None) -> str:
         if self.provider == "openai":
@@ -47,4 +47,4 @@ class LLMClient:
             return response.output.choices[0].message.content.strip()
 
         else:
-            raise ValueError("未知的 LLM 提供商")
+            raise ValueError("Unknown LLM provider")
