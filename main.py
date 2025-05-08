@@ -15,7 +15,7 @@ from core.executor import test_webshell, create_connector
 from core.shell_generator import ShellGenerator
 from utils.mylogger import setup_logger
 from utils.webshell_organizer import WebshellAnalyzer
-
+from tools.prebuild_images import DockerImageBuilder
 class WebShellTester:
     def __init__(self):
         self.env_manager = EnvironmentManager()
@@ -570,17 +570,20 @@ def analyze_single_file(file_path: str, verbose: bool = False, keep_container: b
 def main():
     setup_logger()
     
-    parser = argparse.ArgumentParser(description='WebShell测试工具')
-    subparsers = parser.add_subparsers(dest='command', help='命令')
+    parser = argparse.ArgumentParser(description='WebShell Tester')
+    subparsers = parser.add_subparsers(dest='command', help='Commands')
+
     
     # 添加analyze命令
-    analyze_parser = subparsers.add_parser('analyze', help='分析单个WebShell文件')
-    analyze_parser.add_argument('file', help='要分析的文件路径')
-    analyze_parser.add_argument('-v', '--verbose', action='store_true', help='显示详细信息')
+    analyze_parser = subparsers.add_parser('analyze', help='Analyze a single WebShell file')
+    analyze_parser.add_argument('file', help='The path to the file to analyze')
+    analyze_parser.add_argument('-v', '--verbose', action='store_true', help='Show detailed information')
     
     # 添加test命令
-    test_parser = subparsers.add_parser('test', help='测试WebShell')
-    test_parser.add_argument('--env', default='php7.4_apache', help='测试环境类型')
+    test_parser = subparsers.add_parser('test', help='Test WebShell')
+    test_parser.add_argument('--env', default='php7.4_apache', help='Test environment type')
+    # 列出支持的环境
+    list_envs_parser = subparsers.add_parser('list-envs', help='List supported environments')
     
     args = parser.parse_args()
     
@@ -592,6 +595,23 @@ def main():
     elif args.command == 'test':
         tester = WebShellTester()
         asyncio.run(tester.run_tests(args.env))
+
+    elif args.command == 'list-envs':
+        builder = DockerImageBuilder()
+        logger.info("Supported environments:")
+        for status in builder.list_images():
+            logger.info(f"\n- {status['name']}:")
+            logger.info(f"  Image: {status['tag']}")
+            if 'status' in status:
+                logger.info(f"  Status: {status['status']}")
+            else:
+                logger.info(f"  ID: {status['id']}")
+                logger.info(f"  Size: {status['size']}")
+                logger.info(f"  Created: {status['created']}")
+                if status['containers']:
+                    logger.info(f"  Running containers: {', '.join(status['containers'])}")
+                if status.get('build_args'):
+                    logger.info(f"  Default build arguments: {status['build_args']}")
     else:
         parser.print_help()
         sys.exit(1)
